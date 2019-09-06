@@ -1,0 +1,21 @@
+Package: fishualize
+Type: Package
+Title: Color palettes based on fish
+Version: 0.1.0
+Author: Nina Schiettekatte, Jordan Casey, Simon Brandl
+Maintainer: Nina Schiettekatte <nina.schiettekatte@gmail.com>
+Description: Implementation of color palettes based on fish species
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 2.10)
+Suggests:
+    hexbin (>= 1.27.0),
+    testthat
+URL: https://github.com/nschiett/fishualize
+BugReports:https://github.com/nschiett/fishualize/issues
+Imports: 
+    ggplot2 (>= 1.0.1),
+    gridExtra
+RoxygenNote: 6.1.1
