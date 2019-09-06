@@ -1,110 +1,113 @@
----
-title: "Fishualize"
-author:
-  - "Nina Schiettekatte"
-date: "`r Sys.Date()`"
-output:
-  md_document:
-    variant: markdown_github
-    toc: true
-    toc_depth: 1
----
+-   [Installation](#installation)
+-   [Introduction](#introduction)
+-   [The colour scales](#the-colour-scales)
+-   [Usage](#usage)
 
-`fishualize` allows you to implement the color pattern or your favourite fish for all you graphs.
+`fishualize` allows you to implement the color pattern or your favourite
+fish for all you graphs.
 
-## Installation
+Installation
+------------
 
-
-```{r, eval = FALSE}
+``` r
 library(devtools)
 devtools::install_github("nschiett/fishualize", force = TRUE)
 library(fishualize)
 ```
 
+Introduction
+============
 
+The [**fishualize**](http:://github.com/nschiett/fishualize) package
+provides colour scales created by Nina Schiettekatte, Jordan Casey and
+Simon Brandl.
 
-# Introduction
+The colour scales
+=================
 
-The [**fishualize**](http:://github.com/nschiett/fishualize) package provides colour scales created by Nina Schiettekatte, Jordan Casey and Simon Brandl. 
+The package contains one color scale per species. The amount of color
+scales/species will expand over time. To see the fish color scales that
+are available, run `fish_palettes()`
 
-# The colour scales
+Usage
+=====
 
-The package contains one color scale per species. The amount of color scales/species will expand over time. 
-To see the fish color scales that are available, run `fish_palettes()`
-
-```{r for_repeat, include=FALSE}
-n_col <- 128
-img <- function(obj, nam) {
-  image(1:length(obj), 1, as.matrix(1:length(obj)), col=obj, 
-        main = nam, ylab = "", xaxt = "n", yaxt = "n",  bty = "n")
-}
-```
-
-```{r begin, message=FALSE, include=FALSE}
-library(fishualize)
-library(scales)
-library(colorspace)
-library(dichromat)
-```
-
-
-# Usage
-
-The `fish()` function produces the fish color scale based on your favourite species, indicated by 'option'.  
+The `fish()` function produces the fish color scale based on your
+favourite species, indicated by ‘option’.
 
 For base plots, use the `fish()` function to generate a palette:
 
-```{r setup, include=FALSE}
-library(fishualize)
-knitr::opts_chunk$set(echo = TRUE, fig.retina=2, fig.width=7, fig.height=5)
-```
-
-
-```{r tldr_base, message=FALSE}
+``` r
 pal <- fish(256, option = "Trimma_lantana")
 image(volcano, col = pal)
+```
 
+<img src="README_files/figure-markdown_github/tldr_base-1.png" width="672" />
+
+``` r
 pal <- fish(10, option = "Ostracion_cubicus")
 image(volcano, col = pal)
 ```
 
-## ggplot2
+<img src="README_files/figure-markdown_github/tldr_base-2.png" width="672" />
 
-The package also contains color scale functions for **ggplot**
-plots: `scale_color_fish()` and `scale_fill_fish()`. 
+ggplot2
+-------
 
+The package also contains color scale functions for **ggplot** plots:
+`scale_color_fish()` and `scale_fill_fish()`.
 
-```{r, tldr_ggplot, message=FALSE}
+``` r
 library(ggplot2)
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
   scale_fill_fish(option = "Zebrasoma_velifer") + theme_bw() +
   labs( title = "Zebrasoma_velifer")
+```
 
+<img src="README_files/figure-markdown_github/tldr_ggplot-1.png" width="672" />
+
+``` r
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
   scale_fill_fish(option = "Trimma_lantana") + theme_bw() +
   labs( title = "Trimma_lantana")
+```
 
+<img src="README_files/figure-markdown_github/tldr_ggplot-2.png" width="672" />
+
+``` r
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
   scale_fill_fish(option = "Chlorurus_microrhinos") + theme_bw() +
   labs( title = "Chlorurus_microrhinos")
+```
 
+<img src="README_files/figure-markdown_github/tldr_ggplot-3.png" width="672" />
+
+``` r
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
   scale_fill_fish(option = "Thalassoma_hardwicke") + theme_bw() +
   labs( title = "Thalassoma_hardwicke")
+```
 
+<img src="README_files/figure-markdown_github/tldr_ggplot-4.png" width="672" />
+
+``` r
 ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
   geom_hex() + coord_fixed() +
   scale_fill_fish(option = "Ostracion_cubicus") + theme_bw() +
   labs( title = "Ostracion_cubicus")
 ```
 
-Here the scale based on 'Ostracion_cubicus', 'Trimma_lantana' , 'Zebrasoma_velifer' and 'Chlorurus_microrhinos' for a cloropleth map of U.S. unemployment:
+<img src="README_files/figure-markdown_github/tldr_ggplot-5.png" width="672" />
 
-```{r, ggplot2}
+Here the scale based on ‘Ostracion\_cubicus’, ‘Trimma\_lantana’ ,
+‘Zebrasoma\_velifer’ and ‘Chlorurus\_microrhinos’ for a cloropleth map
+of U.S. unemployment:
+
+``` r
 unemp <- read.csv("http://datasets.flowingdata.com/unemployment09.csv",
                   header = FALSE, stringsAsFactors = FALSE)
 names(unemp) <- c("id", "state_fips", "county_fips", "name", "year",
@@ -128,7 +131,11 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
   scale_fill_fish(option="Ostracion_cubicus")
+```
 
+<img src="README_files/figure-markdown_github/ggplot2-1.png" width="672" />
+
+``` r
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
   geom_polygon(data = state_df, colour = "white", fill = NA) +
@@ -138,7 +145,11 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
   scale_fill_fish(option = "Trimma_lantana")
+```
 
+<img src="README_files/figure-markdown_github/ggplot2-2.png" width="672" />
+
+``` r
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
   geom_polygon(data = state_df, colour = "white", fill = NA) +
@@ -148,7 +159,11 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   theme(axis.line = element_blank(), axis.text = element_blank(),
         axis.ticks = element_blank(), axis.title = element_blank()) +
   scale_fill_fish(option = "Zebrasoma_velifer")
+```
 
+<img src="README_files/figure-markdown_github/ggplot2-3.png" width="672" />
+
+``` r
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
   geom_polygon(data = state_df, colour = "white", fill = NA) +
@@ -160,16 +175,23 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   scale_fill_fish(option = "Chlorurus_microrhinos")
 ```
 
-The ggplot functions also can be used for discrete scales with the argument
-`discrete=TRUE`.
+<img src="README_files/figure-markdown_github/ggplot2-4.png" width="672" />
 
-```{r discrete}
+The ggplot functions also can be used for discrete scales with the
+argument `discrete=TRUE`.
+
+``` r
 p <- ggplot(mtcars, aes(wt, mpg))
 p + geom_point(size=4, aes(colour = factor(carb))) +
     scale_color_fish(discrete=TRUE, option = "Thalassoma_hardwicke") +
     theme_bw()
 ```
 
-## Credits
+<img src="README_files/figure-markdown_github/discrete-1.png" width="672" />
 
-All credits for the structure of this package go to the `harrypotter` package made by Alejandro Jiménez: https://github.com/aljrico/harrypotter
+Credits
+-------
+
+All credits for the structure of this package go to the `harrypotter`
+package made by Alejandro Jiménez:
+<https://github.com/aljrico/harrypotter>
