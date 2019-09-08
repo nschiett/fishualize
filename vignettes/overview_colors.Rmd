@@ -1,0 +1,41 @@
+---
+title: "Overview fishualize palettes"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Overview fishualize palettes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+img <- function(obj, nam) {
+  image(1:length(obj), 1, as.matrix(1:length(obj)), col=obj, 
+        main = nam, ylab = "",xlab = " ", xaxt = "n", yaxt = "n",  bty = "n")
+}
+```
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(fishualize)
+c <- sort(unique(fishualize::fishcolors$option))
+invisible(lapply(1:length(c), function(i){
+  sp <- c[i]
+  img(rev(fishualize::fish(5, option = sp)), sp)
+  return(" ")
+}))
+
+```
+
+
