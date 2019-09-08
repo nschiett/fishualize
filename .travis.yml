@@ -1,18 +1,16 @@
 language: r
-r: devel
-sudo: FALSE
 cache: packages
 
 warnings_are_errors: FALSE
 
-after_success:
-  - Rscript -e 'pkgdown::build_site()'
+before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
 
 deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_PAT
-  keep-history: true
-  local-dir: docs
-  on:
-    branch: master
+    provider: script
+    skip_cleanup: true
+    keep-history: true
+    local-dir: docs
+
+
+after_success:
+  - Rscript -e 'pkgdown::build_site()'
