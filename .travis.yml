@@ -1,0 +1,18 @@
+language: r
+r: devel
+sudo: FALSE
+cache: packages
+
+warnings_are_errors: FALSE
+
+after_success:
+  - Rscript -e 'pkgdown::build_site()'
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_PAT
+  keep-history: true
+  local-dir: docs
+  on:
+    branch: master
