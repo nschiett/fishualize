@@ -170,6 +170,20 @@ p + geom_point(size=4, aes(colour = factor(carb))) +
     theme_bw()
 ```
 
+## Silhouettes
+
+It is also possible to add fish silhouettes to your plot with the function `add_silhouette()`.    
+
+```{r }
+library(ggplot2)
+ggplot(diamonds)+
+  geom_bar(aes(cut, fill = cut)) +
+  scale_fill_fish_d(option = "Balistapus_undulatus") +
+  fishualize::add_silhouette(option = "Balistapus_undulatus", ymin = 15000, ymax = 20000, xmin = 2, xmax = 3) +
+  theme_bw()
+```
+
+
 ## Credits
 
 All credits for the structure of this package go to the `harrypotter` package made by Alejandro Jiménez: https://github.com/aljrico/harrypotter

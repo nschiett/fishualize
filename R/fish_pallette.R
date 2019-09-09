@@ -225,3 +225,40 @@ scale_fill_fish <- function(option = 'Ostracion_cubicus', ..., alpha = 1, begin 
   } else {
     scale_fill_gradientn(colours = fish(256, alpha, begin, end, direction, option), ...)
   }}
+
+#' fish silhouette in ggplot2
+#'
+#' Adds a fish silhouette to your plot
+#'
+#' @param option A character string indicating the fish species to use.
+#' @param xmin x location (in data coordinates) giving horizontal location of raster
+#' @param xmax x location (in data coordinates) giving horizontal location of raster
+#' @param ymin y location (in data coordinates) giving vertical location of raster
+#' @param ymax y location (in data coordinates) giving vertical location of raster
+#'
+#'
+#' @rdname add_silhouette
+#'
+#'
+#' @importFrom ggplot2 annotation_custom
+#'
+#'
+#' @examples
+#' library(ggplot2)
+#'
+#' ggplot() + add_silhouette()
+#'
+#' ggplot(diamonds)+
+#'   geom_bar(aes(cut, fill = cut)) +
+#'   scale_fill_fish_d(option = "Balistapus_undulatus") +
+#'   add_silhouette(option = "Balistapus_undulatus", ymin = 15000, ymax = 20000, xmin = 2, xmax = 3) +
+#'   theme_bw()
+#'
+#' @export
+add_silhouette <- function(option = "Balistapus_undulatus", xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf){
+  img <- png::readPNG(paste("silhouettes/", option, ".png", sep = ""))
+  g <- grid::rasterGrob(img, interpolate=TRUE)
+  ggplot2::annotation_custom(g, xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)
+}
+
+
