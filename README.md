@@ -162,7 +162,7 @@ library(ggplot2)
 ggplot(diamonds)+
   geom_bar(aes(cut, fill = cut)) +
   scale_fill_fish_d(option = "Balistapus_undulatus") +
-  fishualize::add_silhouette(option = "Balistapus_undulatus", ymin = 15000, ymax = 20000, xmin = 2, xmax = 3) +
+  fishualize::add_silhouette(option = "Balistapus_undulatus", ymin = 15000, ymax = 20000, xmin = 2, xmax = 3, fill = "#000000") +
   theme_bw()
 ```
 
