@@ -3,6 +3,9 @@
 -   [The colour scales](#the-colour-scales)
 -   [Usage](#usage)
 
+[![Build
+Status](https://api.travis-ci.org/nschiett/fishualize.png?branch=master)](https://travis-ci.org/nschiett/fishualize)
+
 `fishualize` allows you to implement the color pattern or your favourite
 fish for all you graphs.
 
@@ -122,34 +125,7 @@ county_df$state_name <- NULL
 state_df <- map_data("state", projection = "albers", parameters = c(39, 45))
 choropleth <- merge(county_df, unemp, by = c("state", "county"))
 choropleth <- choropleth[order(choropleth$order), ]
-ggplot(choropleth, aes(long, lat, group = group)) +
-  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
-  geom_polygon(data = state_df, colour = "white", fill = NA) +
-  coord_fixed() +
-  theme_minimal() +
-  ggtitle("US unemployment rate by county") +
-  theme(axis.line = element_blank(), axis.text = element_blank(),
-        axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_fish(option="Ostracion_cubicus")
-```
 
-<img src="README_files/figure-markdown_github/ggplot2-1.png" width="672" />
-
-``` r
-ggplot(choropleth, aes(long, lat, group = group)) +
-  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
-  geom_polygon(data = state_df, colour = "white", fill = NA) +
-  coord_fixed() +
-  theme_minimal() +
-  ggtitle("US unemployment rate by county") +
-  theme(axis.line = element_blank(), axis.text = element_blank(),
-        axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_fish(option = "Trimma_lantana")
-```
-
-<img src="README_files/figure-markdown_github/ggplot2-2.png" width="672" />
-
-``` r
 ggplot(choropleth, aes(long, lat, group = group)) +
   geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
   geom_polygon(data = state_df, colour = "white", fill = NA) +
@@ -161,21 +137,7 @@ ggplot(choropleth, aes(long, lat, group = group)) +
   scale_fill_fish(option = "Zebrasoma_velifer")
 ```
 
-<img src="README_files/figure-markdown_github/ggplot2-3.png" width="672" />
-
-``` r
-ggplot(choropleth, aes(long, lat, group = group)) +
-  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
-  geom_polygon(data = state_df, colour = "white", fill = NA) +
-  coord_fixed() +
-  theme_minimal() +
-  ggtitle("US unemployment rate by county") +
-  theme(axis.line = element_blank(), axis.text = element_blank(),
-        axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_fish(option = "Chlorurus_microrhinos")
-```
-
-<img src="README_files/figure-markdown_github/ggplot2-4.png" width="672" />
+<img src="README_files/figure-markdown_github/ggplot2-1.png" width="672" />
 
 The ggplot functions also can be used for discrete scales with the
 argument `discrete=TRUE`.
