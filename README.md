@@ -6,6 +6,8 @@
 [![Build
 Status](https://api.travis-ci.org/nschiett/fishualize.png?branch=master)](https://travis-ci.org/nschiett/fishualize)
 
+<img src="man/figures/fishualize_logo.pdf" width = 120 alt="fishflux logo"/>
+
 `fishualize` allows you to implement the color pattern or your favourite
 fish for all you graphs.
 
@@ -151,26 +153,9 @@ p + geom_point(size=4, aes(colour = factor(carb))) +
 
 <img src="README_files/figure-markdown_github/discrete-1.png" width="672" />
 
-Silhouettes
------------
-
-It is also possible to add fish silhouettes to your plot with the
-function `add_silhouette()`.
-
-``` r
-library(ggplot2)
-ggplot(diamonds)+
-  geom_bar(aes(cut, fill = cut)) +
-  scale_fill_fish_d(option = "Balistapus_undulatus") +
-  fishualize::add_silhouette(option = "Balistapus_undulatus", ymin = 15000, ymax = 20000, xmin = 2, xmax = 3, fill = "#000000") +
-  theme_bw()
-```
-
-<img src="README_files/figure-markdown_github/unnamed-chunk-2-1.png" width="672" />
-
 Credits
 -------
 
-All credits for the structure of this package go to the `harrypotter`
-package made by Alejandro Jiménez:
+All credits for the initial structure of the functions for this package
+go to the `harrypotter` package made by Alejandro Jiménez:
 <https://github.com/aljrico/harrypotter>

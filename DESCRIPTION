@@ -2,12 +2,13 @@ Package: fishualize
 Type: Package
 Title: Color palettes based on fish
 Version: 0.1.0
-Author: Nina Schiettekatte
-Author: Jordan Casey
-Author: Simon Brandl
+Authors@R: c(
+    person("Nina", "Schiettekatte", email = "nina.schiettekatte@gmail.com", role = "cre"),
+    person("Brandl", "Simon", role = "aut"),
+    person("Casey", "Jordan", role = "aut"))
 Maintainer: Nina Schiettekatte <nina.schiettekatte@gmail.com>
 Description: Implementation of color palettes based on fish species
-License: What license is it under?
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
 Depends:
