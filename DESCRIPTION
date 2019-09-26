@@ -17,8 +17,8 @@ Suggests:
     hexbin (>= 1.27.0),
     testthat,
     knitr,
-    rmarkdown
-    pkgdown
+    rmarkdown,
+    pkgdown 
 URL: https://github.com/nschiett/fishualize
 BugReports: https://github.com/nschiett/fishualize/issues
 Imports: 
