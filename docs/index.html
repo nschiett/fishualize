@@ -80,6 +80,8 @@
 
     
     
+
+<p><img src="reference/figures/fishualize_logo.pdf" width="120" alt="fishflux logo"></p>
 <p><code>fishualize</code> allows you to implement the color pattern or your favourite fish for all you graphs.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -91,7 +93,7 @@
 <div id="introduction" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h1></div>
-<p>The <a href="http:://github.com/nschiett/fishualize"><strong>fishualize</strong></a> package provides colour scales created by Nina Schiettekatte, Jordan Casey and Simon Brandl.</p>
+<p>The <a href="http:://github.com/nschiett/fishualize"><strong>fishualize</strong></a> package provides colour scales based on the natural colors of fishes.</p>
 </div>
 <div id="the-colour-scales" class="section level1">
 <h1 class="hasAnchor">
@@ -154,57 +156,28 @@
 <a class="sourceLine" id="cb9-12" data-line-number="12">state_df &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/map_data.html">map_data</a></span>(<span class="st">"state"</span>, <span class="dt">projection =</span> <span class="st">"albers"</span>, <span class="dt">parameters =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">39</span>, <span class="dv">45</span>))</a>
 <a class="sourceLine" id="cb9-13" data-line-number="13">choropleth &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/merge">merge</a></span>(county_df, unemp, <span class="dt">by =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"state"</span>, <span class="st">"county"</span>))</a>
 <a class="sourceLine" id="cb9-14" data-line-number="14">choropleth &lt;-<span class="st"> </span>choropleth[<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/order">order</a></span>(choropleth<span class="op">$</span>order), ]</a>
-<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(choropleth, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(long, lat, <span class="dt">group =</span> group)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> rate), <span class="dt">colour =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">alpha</a></span>(<span class="st">"white"</span>, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span>), <span class="dt">size =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="dt">data =</span> state_df, <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">fill =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-19" data-line-number="19"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">"US unemployment rate by county"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-21" data-line-number="21"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.line =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.text =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),</a>
-<a class="sourceLine" id="cb9-22" data-line-number="22">        <span class="dt">axis.ticks =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-23" data-line-number="23"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option=</span><span class="st">"Ostracion_cubicus"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb9-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(choropleth, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(long, lat, <span class="dt">group =</span> group)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> rate), <span class="dt">colour =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">alpha</a></span>(<span class="st">"white"</span>, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span>), <span class="dt">size =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="dt">data =</span> state_df, <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">fill =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-19" data-line-number="19"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-21" data-line-number="21"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">"US unemployment rate by county"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-22" data-line-number="22"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.line =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.text =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),</a>
+<a class="sourceLine" id="cb9-23" data-line-number="23">        <span class="dt">axis.ticks =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-24" data-line-number="24"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Zebrasoma_velifer"</span>)</a></code></pre></div>
 <p><img src="index_files/figure-html/ggplot2-1.png" width="672"></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(choropleth, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(long, lat, <span class="dt">group =</span> group)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> rate), <span class="dt">colour =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">alpha</a></span>(<span class="st">"white"</span>, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span>), <span class="dt">size =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="dt">data =</span> state_df, <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">fill =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">"US unemployment rate by county"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.line =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.text =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),</a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">        <span class="dt">axis.ticks =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Trimma_lantana"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-2.png" width="672"></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(choropleth, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(long, lat, <span class="dt">group =</span> group)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> rate), <span class="dt">colour =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">alpha</a></span>(<span class="st">"white"</span>, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span>), <span class="dt">size =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="dt">data =</span> state_df, <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">fill =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">"US unemployment rate by county"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.line =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.text =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),</a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">        <span class="dt">axis.ticks =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Zebrasoma_velifer"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-3.png" width="672"></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(choropleth, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(long, lat, <span class="dt">group =</span> group)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> rate), <span class="dt">colour =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">alpha</a></span>(<span class="st">"white"</span>, <span class="dv">1</span> <span class="op">/</span><span class="st"> </span><span class="dv">2</span>), <span class="dt">size =</span> <span class="fl">0.2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_polygon.html">geom_polygon</a></span>(<span class="dt">data =</span> state_df, <span class="dt">colour =</span> <span class="st">"white"</span>, <span class="dt">fill =</span> <span class="ot">NA</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/coord_fixed.html">coord_fixed</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span>(<span class="st">"US unemployment rate by county"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.line =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.text =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(),</a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">        <span class="dt">axis.ticks =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), <span class="dt">axis.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Chlorurus_microrhinos"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-4.png" width="672"></p>
 <p>The ggplot functions also can be used for discrete scales with the argument <code>discrete=TRUE</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(mtcars, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(wt, mpg))</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="dt">size=</span><span class="dv">4</span>, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">colour =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(carb))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="reference/scale_fish.html">scale_color_fish</a></span>(<span class="dt">discrete=</span><span class="ot">TRUE</span>, <span class="dt">option =</span> <span class="st">"Thalassoma_hardwicke"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">p &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(mtcars, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(wt, mpg))</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">p <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="dt">size=</span><span class="dv">4</span>, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">colour =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(carb))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="reference/scale_fish.html">scale_color_fish</a></span>(<span class="dt">discrete=</span><span class="ot">TRUE</span>, <span class="dt">option =</span> <span class="st">"Thalassoma_hardwicke"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">    </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
 <p><img src="index_files/figure-html/discrete-1.png" width="672"></p>
 </div>
 <div id="credits" class="section level2">
 <h2 class="hasAnchor">
 <a href="#credits" class="anchor"></a>Credits</h2>
-<p>All credits for the structure of this package go to the <code>harrypotter</code> package made by Alejandro Jiménez: <a href="https://github.com/aljrico/harrypotter" class="uri">https://github.com/aljrico/harrypotter</a></p>
+<p>All credits for the initial structure of the functions for this package go to the <code>harrypotter</code> package made by Alejandro Jiménez: <a href="https://github.com/aljrico/harrypotter" class="uri">https://github.com/aljrico/harrypotter</a></p>
 </div>
 </div>
   </div>
@@ -222,23 +195,31 @@
 <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
-<li>What license is it under?</li>
+<li><a href="https://www.r-project.org/Licenses/GPL-2">GPL-2</a></li>
 </ul>
 </div>
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>Nina Schiettekatte <br><small class="roles"> Maintainer </small>  </li>
+<li>Brandl Simon <br><small class="roles"> Author </small>  </li>
+<li>Casey Jordan <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>
 
-      </div>
+      <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://travis-ci.org/nschiett/fishualize"><img src="https://api.travis-ci.org/nschiett/fishualize.png?branch=master" alt="Build Status"></a></li>
+</ul>
+</div>
+</div>
 
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Nina Schiettekatte.</p>
+  <p>Developed by Nina Schiettekatte, Brandl Simon, Casey Jordan.</p>
 </div>
 
 <div class="pkgdown">

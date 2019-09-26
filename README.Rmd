@@ -31,7 +31,7 @@ library(fishualize)
 
 # Introduction
 
-The [**fishualize**](http:://github.com/nschiett/fishualize) package provides colour scales created by Nina Schiettekatte, Jordan Casey and Simon Brandl. 
+The [**fishualize**](http:://github.com/nschiett/fishualize) package provides colour scales based on the natural colors of fishes.  
 
 # The colour scales
 
