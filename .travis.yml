@@ -3,8 +3,6 @@ cache: packages
 
 warnings_are_errors: FALSE
 
-before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
-
 after_success:
   - Rscript -e 'pkgdown::build_site()'
 
