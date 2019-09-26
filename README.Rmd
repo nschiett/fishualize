@@ -16,7 +16,7 @@ output:
 <img src="man/figures/fishualize_logo.pdf" width = 120 alt="fishflux logo"/>
 
 
-`fishualize` allows you to implement the color pattern or your favourite fish for all you graphs.
+`fishualize` allows you to implement the colour pattern or your favourite fish for all you graphs.
 
 ## Installation
 
