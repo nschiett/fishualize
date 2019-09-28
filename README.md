@@ -6,10 +6,10 @@
 [![Build
 Status](https://api.travis-ci.org/nschiett/fishualize.png?branch=master)](https://travis-ci.org/nschiett/fishualize)
 
-<img src="man/figures/fishualize_logo.pdf" width = 120 alt="fishflux logo"/>
+<img src="man/figures/fishualize_logo.png" width = 120 alt="fishflux logo"/>
 
-`fishualize` allows you to implement the color pattern or your favourite
-fish for all you graphs.
+`fishualize` allows you to implement the colour pattern or your
+favourite fish for all you graphs.
 
 Installation
 ------------
@@ -24,8 +24,7 @@ Introduction
 ============
 
 The [**fishualize**](http:://github.com/nschiett/fishualize) package
-provides colour scales created by Nina Schiettekatte, Jordan Casey and
-Simon Brandl.
+provides colour scales based on the natural colors of fishes.
 
 The colour scales
 =================
