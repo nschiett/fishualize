@@ -5,6 +5,8 @@
 
 [![Build
 Status](https://api.travis-ci.org/nschiett/fishualize.png?branch=master)](https://travis-ci.org/nschiett/fishualize)
+\[![GitHub All
+Releases](https://img.shields.io/github/downloads/nschiett/fishualize/total)
 
 <img src="man/figures/fishualize_logo.png" width = 120 alt="fishflux logo"/>
 
