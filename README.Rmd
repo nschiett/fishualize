@@ -13,7 +13,7 @@ output:
 
 [![Build Status](https://api.travis-ci.org/nschiett/fishualize.png?branch=master)](https://travis-ci.org/nschiett/fishualize)
 
-<img src="man/figures/fishualize_logo.pdf" width = 120 alt="fishflux logo"/>
+<img src="man/figures/fishualize_logo.png" width = 120 alt="fishflux logo"/>
 
 
 `fishualize` allows you to implement the colour pattern or your favourite fish for all you graphs.
