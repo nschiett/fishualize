@@ -15,19 +15,19 @@ knitr::opts_chunk$set(
 )
 ```
 
-[fishualize](https://github.com/nschiett/fishualize) is a project that will be updated regularly. There are many fishes in the ocean that are waiting to be fishualized! You're favourite fish is currently not included in [fishualize](https://github.com/nschiett/fishualize)? Do not despair! You can make it happen! It's a piece of cake and here's how to do it:
+[fishualize](https://github.com/nschiett/fishualize) is a project that will be updated regularly. There are plenty more fish in the sea (and freshwater too, I guess), which are all waiting to be fishualized! Your favorite fish is currently not included in [fishualize](https://github.com/nschiett/fishualize), you say? Do not despair! You can make it happen and contribute to the wonderful community of nerds on #TeamFish! It’s a piece of cake and here’s how to do it:
 
-### 1) Browse the internet or your personal folders until you find a pretty picture of your favourite fish
-### 2) Go to https://coolors.co/app.
+### 1) Browse the internet or your personal folders until you find a pretty picture of your favorite fish
+### 2) Go to https://coolors.co/app or use your illustration software of choice (Adobe Illustrato, Inkscape, etc).
 ### 3) Press the camera symbol and either paste the link of a picture from the internet or upload one from your computer.
-### 4) Let the fun begin! Carefully pick 5 colors that represent the beauty of your fish. 
+### 4) Let the fun begin! Carefully pick 5 colors that represent the full beauty of your fish. Make sure to follow an appropriate color order according to color spectrum: red, orange, yellow, green, blue, and violet (or vice versa). 
 ### 5) Copy the hex color codes.
-### 6) Go to https://github.com/nschiett/fishualize/issues, start a new issue with the label "enhancement" and paste the 5 colors and the species name (only latin names please). 
-### 7) You're work is done! We will add your fish color palette as soon as we can. 
+### 6) Go to https://github.com/nschiett/fishualize/issues, start a new issue with the label "enhancement" and paste the 5 colors and the species name (only scientific names please, i.e. genus and species separated by an underscore: "Zebrasoma_velifer").
+### 7) Awesome. Your work is done! We will add your fish color palette as soon as we can. 
 
 # Frequently asked questions
 
-### I am having so much fun making fish color patterns and want to help more. How do I do this?   
+### I am having SO.MUCH.FUN making fish color palettes and want to help more. How do I do this? 
 
 For those feeling motivated, feel free to start an excel file with two columns (species and hex codes) like this: 
 
@@ -40,14 +40,14 @@ For those feeling motivated, feel free to start an excel file with two columns (
 |Zebrasoma_scopas|#1234d|
 |...             |...   |
 
-Once you satisfied with the color palettes you made, you can send your excel file to nina.schiettekatte@gmail.com. 
+Once you are satisfied with the color palettes you created, you can send your excel file to nina.schiettekatte@gmail.com. 
 
-### I want to use the color palette of my study species, but I am not happy with the palette as it is. What can I do?     
+### I want to use the color palette of my study species, but I am not happy with the palette as it is currently provided. What can I do?    
 
-We are very happy with any suggestions and improvements. Go to https://github.com/nschiett/fishualize/issues, start a new issue with the label "enhancement" and suggest an alternative color palette. 
+We are happy with any reasonable suggestions and improvements on existing palettes. Go to https://github.com/nschiett/fishualize/issues, start a new issue with the label “enhancement” and suggest an alternative color palette.
 
 ### I love fishualize. Can I put the fishualize hexagon sticker on my laptop?
-Yes! Go for it! Not nerdy at all. 
+Yes, by all means! Go for it! Not nerdy at all 
 
 
 
