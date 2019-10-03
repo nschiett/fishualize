@@ -27,7 +27,7 @@
 #' @export
 
 fish_palettes <- function(){
-  return(unique(fishcolors$option))
+  return(sort(unique(fishcolors$option)))
 }
 
 #'

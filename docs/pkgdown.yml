@@ -2,6 +2,7 @@ pandoc: 2.1.2
 pkgdown: 1.3.0
 pkgdown_sha: ~
 articles:
+  contribute: contribute.html
   overview_colors: overview_colors.html
 urls:
   reference: https://nschiett.github.io/fishualize//reference

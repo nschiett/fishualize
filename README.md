@@ -1,6 +1,5 @@
--   [Installation](#installation)
 -   [Introduction](#introduction)
--   [The colour scales](#the-colour-scales)
+-   [The color scales](#the-color-scales)
 -   [Usage](#usage)
 
 [![Build
@@ -10,8 +9,11 @@ Releases](https://img.shields.io/github/downloads/nschiett/fishualize/total)
 
 <img src="man/figures/fishualize_logo.png" width = 120 alt="fishflux logo"/>
 
-`fishualize` allows you to implement the colour pattern or your
-favourite fish for all you graphs.
+Introduction
+============
+
+The [**fishualize**](http:://github.com/nschiett/fishualize) package
+provides color scales based on the natural colors of fishes.
 
 Installation
 ------------
@@ -22,18 +24,14 @@ devtools::install_github("nschiett/fishualize", force = TRUE)
 library(fishualize)
 ```
 
-Introduction
-============
-
-The [**fishualize**](http:://github.com/nschiett/fishualize) package
-provides colour scales based on the natural colors of fishes.
-
-The colour scales
-=================
+The color scales
+================
 
 The package contains one color scale per species. The amount of color
-scales/species will expand over time. To see the fish color scales that
-are available, run `fish_palettes()`
+scales/species will expand over time. To get a list of fish species that
+are available, run `fish_palettes()`.  
+An overview of the color scales can be found
+[here](https://nschiett.github.io/fishualize/articles/overview_colors.html).
 
 Usage
 =====
@@ -65,53 +63,60 @@ The package also contains color scale functions for **ggplot** plots:
 
 ``` r
 library(ggplot2)
-ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
-  geom_hex() + coord_fixed() +
-  scale_fill_fish(option = "Zebrasoma_velifer") + theme_bw() +
-  labs( title = "Zebrasoma_velifer")
+library(rfishbase)
+
+# load dome data
+spp <- fishualize::fish_palettes()
+dt <- rfishbase::species(gsub("_"," ", spp))
+
+# plot
+ggplot(dt[!is.na(dt$Importance),]) +
+  geom_bar(aes(x = Importance, fill = Importance)) +
+  scale_fill_fish_d(option = "Scarus_quoyi") +
+  theme_bw() +
+  theme(axis.text.x= element_blank() )
 ```
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-1.png" width="672" />
 
 ``` r
-ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
-  geom_hex() + coord_fixed() +
-  scale_fill_fish(option = "Trimma_lantana") + theme_bw() +
-  labs( title = "Trimma_lantana")
+ggplot(dt) +
+  geom_point(aes(x = Length, y = Vulnerability, color = Vulnerability), size = 3) +
+  scale_color_fish(option = "Hypsypops_rubicundus", direction = -1) +
+  theme_bw()
 ```
+
+    ## Warning: Removed 1 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-2.png" width="672" />
 
 ``` r
-ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
-  geom_hex() + coord_fixed() +
-  scale_fill_fish(option = "Chlorurus_microrhinos") + theme_bw() +
-  labs( title = "Chlorurus_microrhinos")
+data <- rfishbase::ecology(gsub("_"," ", spp), c("SpecCode","FeedingType", "DietTroph")) %>% 
+  dplyr::left_join( rfishbase::species(gsub("_"," ", spp)))
+
+
+ggplot(data[!is.na(data$FeedingType),]) +
+  geom_boxplot(aes(x = FeedingType, y = log(Length), fill = FeedingType )) +
+  scale_fill_fish_d(option = "Cirrhilabrus_solorensis") +
+  theme_bw() +
+  theme(axis.text.x= element_blank() )
 ```
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-3.png" width="672" />
 
 ``` r
-ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
-  geom_hex() + coord_fixed() +
-  scale_fill_fish(option = "Thalassoma_hardwicke") + theme_bw() +
-  labs( title = "Thalassoma_hardwicke")
+ggplot(data) +
+  geom_point(aes(x = Length, y = DietTroph, color = Vulnerability), size = 6, alpha = 0.8) +
+  scale_color_fish(option = "Lepomis_megalotis", direction = -1) +
+  theme_bw()
 ```
+
+    ## Warning: Removed 43 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-4.png" width="672" />
 
-``` r
-ggplot(data.frame(x = rnorm(10000), y = rnorm(10000)), aes(x = x, y = y)) +
-  geom_hex() + coord_fixed() +
-  scale_fill_fish(option = "Ostracion_cubicus") + theme_bw() +
-  labs( title = "Ostracion_cubicus")
-```
-
-<img src="README_files/figure-markdown_github/tldr_ggplot-5.png" width="672" />
-
-Here the scale based on ‘Ostracion\_cubicus’, ‘Trimma\_lantana’ ,
-‘Zebrasoma\_velifer’ and ‘Chlorurus\_microrhinos’ for a cloropleth map
-of U.S. unemployment:
+Here the color scale based on ‘Zebrasoma\_velifer’ and for a cloropleth
+map of U.S. unemployment:
 
 ``` r
 unemp <- read.csv("http://datasets.flowingdata.com/unemployment09.csv",
@@ -142,21 +147,15 @@ ggplot(choropleth, aes(long, lat, group = group)) +
 
 <img src="README_files/figure-markdown_github/ggplot2-1.png" width="672" />
 
-The ggplot functions also can be used for discrete scales with the
-argument `discrete=TRUE`.
+Contribute
+----------
 
-``` r
-p <- ggplot(mtcars, aes(wt, mpg))
-p + geom_point(size=4, aes(colour = factor(carb))) +
-    scale_color_fish(discrete=TRUE, option = "Thalassoma_hardwicke") +
-    theme_bw()
-```
-
-<img src="README_files/figure-markdown_github/discrete-1.png" width="672" />
+Check out how you can contribute to this package
+[here](https://nschiett.github.io/fishualize/articles/overview_colors.html)
 
 Credits
 -------
 
-All credits for the initial structure of the functions for this package
-go to the `harrypotter` package made by Alejandro Jiménez:
+Credits for the initial structure of the functions for this package go
+to the `harrypotter` package made by Alejandro Jiménez:
 <https://github.com/aljrico/harrypotter>

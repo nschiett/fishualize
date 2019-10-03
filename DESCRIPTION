@@ -18,6 +18,8 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
+    ggplot2,
+    rfishbase,
     pkgdown 
 URL: https://github.com/nschiett/fishualize
 BugReports: https://github.com/nschiett/fishualize/issues
