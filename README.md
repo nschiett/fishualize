@@ -151,7 +151,7 @@ Contribute
 ----------
 
 Check out how you can contribute to this package
-[here](https://nschiett.github.io/fishualize/articles/overview_colors.html)
+[here](https://nschiett.github.io/fishualize/articles/contribute.html)
 
 Credits
 -------
