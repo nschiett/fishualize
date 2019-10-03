@@ -13,7 +13,9 @@ Introduction
 ============
 
 The [**fishualize**](http:://github.com/nschiett/fishualize) package
-provides color scales based on the natural colors of fishes.
+provides color scales for plotting in R based on nature’s most stunning
+and colorful organisms: teleost fishes (with a few chondrichthyan
+cameos). \#TeamFish in its colorful glory.
 
 Installation
 ------------
@@ -27,19 +29,22 @@ library(fishualize)
 The color scales
 ================
 
-The package contains one color scale per species. The amount of color
-scales/species will expand over time. To get a list of fish species that
-are available, run `fish_palettes()`.  
-An overview of the color scales can be found
+The package contains one scale per species, defined by five dominant
+colors. The number of fishualized species will expand over time. For a
+list of fish species that are currently available, run
+`fish_palettes()`.  
+A visual overview of the color scales can be found
 [here](https://nschiett.github.io/fishualize/articles/overview_colors.html).
 
 Usage
 =====
 
 The `fish()` function produces the fish color scale based on your
-favourite species, indicated by ‘option’.
+favorite species, which can be specified using ‘option’ =
+“Your\_favorite” or fish\_palettes()\[\] with the number of your species
+specified.
 
-For base plots, use the `fish()` function to generate a palette:
+For base R plots, use the `fish()` function to generate a palette:
 
 ``` r
 pal <- fish(256, option = "Trimma_lantana")
@@ -65,11 +70,13 @@ The package also contains color scale functions for **ggplot** plots:
 library(ggplot2)
 library(rfishbase)
 
-# load dome data
+# load data for plotting 
+# 1. Create list of species names currently featured in fishualize
 spp <- fishualize::fish_palettes()
+# 2. Get data on the included species from FishBase using the rfishbase package
 dt <- rfishbase::species(gsub("_"," ", spp))
 
-# plot
+# plot bars with discrete colors using color scheme provided by Scarus quoyi
 ggplot(dt[!is.na(dt$Importance),]) +
   geom_bar(aes(x = Importance, fill = Importance)) +
   scale_fill_fish_d(option = "Scarus_quoyi") +
@@ -80,6 +87,7 @@ ggplot(dt[!is.na(dt$Importance),]) +
 <img src="README_files/figure-markdown_github/tldr_ggplot-1.png" width="672" />
 
 ``` r
+# plot points with continuous colors provided by Hypsypops rubicundus
 ggplot(dt) +
   geom_point(aes(x = Length, y = Vulnerability, color = Vulnerability), size = 3) +
   scale_color_fish(option = "Hypsypops_rubicundus", direction = -1) +
@@ -91,10 +99,11 @@ ggplot(dt) +
 <img src="README_files/figure-markdown_github/tldr_ggplot-2.png" width="672" />
 
 ``` r
+# get ecological information from FishBase
 data <- rfishbase::ecology(gsub("_"," ", spp), c("SpecCode","FeedingType", "DietTroph")) %>% 
   dplyr::left_join( rfishbase::species(gsub("_"," ", spp)))
 
-
+# plot boxplots of length across feeding groups using discrete colors provided by Cirrilabrus solorensis
 ggplot(data[!is.na(data$FeedingType),]) +
   geom_boxplot(aes(x = FeedingType, y = log(Length), fill = FeedingType )) +
   scale_fill_fish_d(option = "Cirrhilabrus_solorensis") +
@@ -105,47 +114,86 @@ ggplot(data[!is.na(data$FeedingType),]) +
 <img src="README_files/figure-markdown_github/tldr_ggplot-3.png" width="672" />
 
 ``` r
+# examine relationships between size and trophic level with vulnerability as a continuous color scheme provided by Lepomis megalotis
 ggplot(data) +
-  geom_point(aes(x = Length, y = DietTroph, color = Vulnerability), size = 6, alpha = 0.8) +
+  geom_point(aes(x = Length, y = DietTroph, color = Vulnerability), size = 6, alpha = 0.9) +
   scale_color_fish(option = "Lepomis_megalotis", direction = -1) +
   theme_bw()
 ```
 
-    ## Warning: Removed 43 rows containing missing values (geom_point).
+    ## Warning: Removed 44 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-4.png" width="672" />
 
-Here the color scale based on ‘Zebrasoma\_velifer’ and for a cloropleth
-map of U.S. unemployment:
+Colors can also be used with maps. Here are several examples of discrete
+and continuous color schemes on a world-map.
 
 ``` r
-unemp <- read.csv("http://datasets.flowingdata.com/unemployment09.csv",
-                  header = FALSE, stringsAsFactors = FALSE)
-names(unemp) <- c("id", "state_fips", "county_fips", "name", "year",
-                  "?", "?", "?", "rate")
-unemp$county <- tolower(gsub(" County, [A-Z]{2}", "", unemp$name))
-unemp$county <- gsub("^(.*) parish, ..$","\\1", unemp$county)
-unemp$state <- gsub("^.*([A-Z]{2}).*$", "\\1", unemp$name)
-county_df <- map_data("county", projection = "albers", parameters = c(39, 45))
-names(county_df) <- c("long", "lat", "group", "order", "state_name", "county")
-county_df$state <- state.abb[match(county_df$state_name, tolower(state.name))]
-county_df$state_name <- NULL
-state_df <- map_data("state", projection = "albers", parameters = c(39, 45))
-choropleth <- merge(county_df, unemp, by = c("state", "county"))
-choropleth <- choropleth[order(choropleth$order), ]
+#load rnaturalearth and rnaturalearthdata packages
+library("rnaturalearth")
+library("rnaturalearthdata")
 
-ggplot(choropleth, aes(long, lat, group = group)) +
-  geom_polygon(aes(fill = rate), colour = alpha("white", 1 / 2), size = 0.2) +
-  geom_polygon(data = state_df, colour = "white", fill = NA) +
-  coord_fixed() +
-  theme_minimal() +
-  ggtitle("US unemployment rate by county") +
-  theme(axis.line = element_blank(), axis.text = element_blank(),
-        axis.ticks = element_blank(), axis.title = element_blank()) +
-  scale_fill_fish(option = "Zebrasoma_velifer")
+#get dataset of the world's countries
+world <- ne_countries(scale = "medium", returnclass = "sf")
+
+#plot worldmap with each country's estimated population as a continuous colors scale based on the reverse colors of Whitley's Boxfish Ostracion whitleyi
+ggplot(data = world) +
+  geom_sf(aes(fill = pop_est)) +
+  scale_fill_fish(option = "Ostracion_whitleyi", direction = -1) +
+  theme_bw()
 ```
 
 <img src="README_files/figure-markdown_github/ggplot2-1.png" width="672" />
+
+``` r
+#plot worldmap with each country's estimated gdp based on the colors of the Sailfin Tang Zebrasoma velifer
+ggplot(data = world) +
+  geom_sf(aes(fill = gdp_md_est)) +
+  scale_fill_fish(option = "Zebrasoma_velifer", trans = "sqrt") +
+  theme_bw()
+```
+
+<img src="README_files/figure-markdown_github/ggplot2-2.png" width="672" />
+
+``` r
+#same example as above but starting at a lighter point of the color scale
+ggplot(data = world) +
+  geom_sf(aes(fill = gdp_md_est)) +
+  scale_fill_fish(option = "Zebrasoma_velifer", trans = "sqrt", begin = 0.3, end = 1) +
+  theme_bw()
+```
+
+<img src="README_files/figure-markdown_github/ggplot2-3.png" width="672" />
+
+``` r
+#plot worldmap again, this time with countries colored by their respective regional affiliation using the colors of the Clown coris *Coris gaimard* and 'discrete = TRUE'
+ggplot(data = world) +
+  geom_sf(aes(fill = region_wb)) +
+  scale_fill_fish(option = "Coris_gaimard", discrete = TRUE) +
+  theme_bw()
+```
+
+<img src="README_files/figure-markdown_github/ggplot2-4.png" width="672" />
+
+``` r
+##same map with colors reversed
+ggplot(data = world) +
+  geom_sf(aes(fill = region_wb)) +
+  scale_fill_fish(option = "Coris_gaimard", discrete = TRUE, direction = -1) +
+  theme_bw()
+```
+
+<img src="README_files/figure-markdown_github/ggplot2-5.png" width="672" />
+
+``` r
+#another map with countries colored by economic status using the colors of the Mandarinfish *Synchiropus splendidus*
+ggplot(data = world) +
+  geom_sf(aes(fill = income_grp)) +
+  scale_fill_fish(option = "Synchiropus_splendidus", discrete = T, alpha = 0.8) +
+  theme_bw()
+```
+
+<img src="README_files/figure-markdown_github/ggplot2-6.png" width="672" />
 
 Contribute
 ----------
@@ -158,4 +206,4 @@ Credits
 
 Credits for the initial structure of the functions for this package go
 to the `harrypotter` package made by Alejandro Jiménez:
-<https://github.com/aljrico/harrypotter>
+<a href="https://github.com/aljrico/harrypotter" class="uri">https://github.com/aljrico/harrypotter</a>
