@@ -4,8 +4,8 @@ Title: Color palettes based on fish
 Version: 1.1.0
 Authors@R: c(
     person("Nina", "Schiettekatte", email = "nina.schiettekatte@gmail.com", role = "cre"),
-    person("Brandl", "Simon", role = "aut"),
-    person("Casey", "Jordan", role = "aut"))
+    person("Simon", "Brandl", role = "aut"),
+    person("Jordan", "Casey",  role = "aut"))
 Maintainer: Nina Schiettekatte <nina.schiettekatte@gmail.com>
 Description: Implementation of color palettes based on fish species
 License: GPL-2
@@ -18,12 +18,12 @@ Suggests:
     testthat,
     knitr,
     rmarkdown,
-    ggplot2,
     rfishbase,
     rnaturalearth,
     rnaturalearthdata,
     rgeos,
-    pkgdown 
+    pkgdown,
+    sp
 URL: https://github.com/nschiett/fishualize
 BugReports: https://github.com/nschiett/fishualize/issues
 Imports: 
