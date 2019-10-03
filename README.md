@@ -129,24 +129,10 @@ Colors can also be used with maps. Here are several examples of discrete
 and continuous color schemes on a world-map.
 
 ``` r
-#load rnaturalearth and rnaturalearthdata packages
-library(rnaturalearth)
-library(rnaturalearthdata)
-library(rgeos)
-```
-
-    ## Loading required package: sp
-
-    ## rgeos version: 0.5-2, (SVN revision 621)
-    ##  GEOS runtime version: 3.5.1-CAPI-1.9.1 
-    ##  Linking to sp version: 1.3-1 
-    ##  Polygon checking: TRUE
-
-``` r
 library(ggplot2)
 
 #get dataset of the world's countries
-world <- ne_countries(scale = "medium", returnclass = "sf")
+world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
 
 #plot worldmap with each country's estimated population as a continuous colors scale based on the reverse colors of Whitley's Boxfish Ostracion whitleyi
 ggplot(data = world) +

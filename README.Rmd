@@ -128,14 +128,10 @@ Colors can also be used with maps. Here are several examples of discrete and con
 
 ```{r, ggplot2}
 
-#load rnaturalearth and rnaturalearthdata packages
-library(rnaturalearth)
-library(rnaturalearthdata)
-library(rgeos)
 library(ggplot2)
 
 #get dataset of the world's countries
-world <- ne_countries(scale = "medium", returnclass = "sf")
+world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
 
 #plot worldmap with each country's estimated population as a continuous colors scale based on the reverse colors of Whitley's Boxfish Ostracion whitleyi
 ggplot(data = world) +

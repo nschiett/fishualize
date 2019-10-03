@@ -20,10 +20,7 @@ Suggests:
     rmarkdown,
     rfishbase,
     rnaturalearth,
-    rnaturalearthdata,
-    rgeos,
-    pkgdown,
-    sp
+    pkgdown
 URL: https://github.com/nschiett/fishualize
 BugReports: https://github.com/nschiett/fishualize/issues
 Imports: 
