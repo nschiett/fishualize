@@ -1,7 +1,7 @@
 Package: fishualize
 Type: Package
 Title: Color palettes based on fish
-Version: 1.1.0
+Version: 0.1.0
 Authors@R: c(
     person("Nina", "Schiettekatte", email = "nina.schiettekatte@gmail.com", role = "cre"),
     person("Simon", "Brandl", role = "aut"),
