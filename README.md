@@ -201,6 +201,17 @@ ggplot(data = world) +
 
 <img src="README_files/figure-markdown_github/ggplot2-6.png" width="672" />
 
+``` r
+#same map as above but with a narrower color palette in discrete values
+ggplot(data = world) +
+  geom_sf(aes(fill = income_grp)) +
+  scale_fill_fish(option = "Synchiropus_splendidus", discrete = T, alpha = 0.8, begin = 0.3, end = 1) +
+  theme_bw()+
+  theme(legend.position = "top")
+```
+
+<img src="README_files/figure-markdown_github/ggplot2-7.png" width="672" />
+
 Contribute
 ----------
 
