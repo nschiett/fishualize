@@ -140,7 +140,8 @@ world <- ne_countries(scale = "medium", returnclass = "sf")
 ggplot(data = world) +
   geom_sf(aes(fill = pop_est)) +
   scale_fill_fish(option = "Ostracion_whitleyi", direction = -1) +
-  theme_bw()
+  theme_bw() +
+  theme(legend.position = "top")
 ```
 
 <img src="README_files/figure-markdown_github/ggplot2-1.png" width="672" />
@@ -150,7 +151,8 @@ ggplot(data = world) +
 ggplot(data = world) +
   geom_sf(aes(fill = gdp_md_est)) +
   scale_fill_fish(option = "Zebrasoma_velifer", trans = "sqrt") +
-  theme_bw()
+  theme_bw()+
+  theme(legend.position = "top")
 ```
 
 <img src="README_files/figure-markdown_github/ggplot2-2.png" width="672" />
@@ -160,7 +162,8 @@ ggplot(data = world) +
 ggplot(data = world) +
   geom_sf(aes(fill = gdp_md_est)) +
   scale_fill_fish(option = "Zebrasoma_velifer", trans = "sqrt", begin = 0.3, end = 1) +
-  theme_bw()
+  theme_bw()+
+  theme(legend.position = "top")
 ```
 
 <img src="README_files/figure-markdown_github/ggplot2-3.png" width="672" />
@@ -170,7 +173,8 @@ ggplot(data = world) +
 ggplot(data = world) +
   geom_sf(aes(fill = region_wb)) +
   scale_fill_fish(option = "Coris_gaimard", discrete = TRUE) +
-  theme_bw()
+  theme_bw()+
+  theme(legend.position = "top")
 ```
 
 <img src="README_files/figure-markdown_github/ggplot2-4.png" width="672" />
@@ -180,7 +184,8 @@ ggplot(data = world) +
 ggplot(data = world) +
   geom_sf(aes(fill = region_wb)) +
   scale_fill_fish(option = "Coris_gaimard", discrete = TRUE, direction = -1) +
-  theme_bw()
+  theme_bw()+
+  theme(legend.position = "top")
 ```
 
 <img src="README_files/figure-markdown_github/ggplot2-5.png" width="672" />
@@ -190,7 +195,8 @@ ggplot(data = world) +
 ggplot(data = world) +
   geom_sf(aes(fill = income_grp)) +
   scale_fill_fish(option = "Synchiropus_splendidus", discrete = T, alpha = 0.8) +
-  theme_bw()
+  theme_bw()+
+  theme(legend.position = "top")
 ```
 
 <img src="README_files/figure-markdown_github/ggplot2-6.png" width="672" />
@@ -198,7 +204,8 @@ ggplot(data = world) +
 Contribute
 ----------
 
-Check out how you can contribute to this package
+Love it? Missing your favorite species? Check out how you can contribute
+to this package
 [here](https://nschiett.github.io/fishualize/articles/contribute.html)
 
 Credits
