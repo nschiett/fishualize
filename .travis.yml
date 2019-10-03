@@ -4,4 +4,9 @@ cache: packages
 warnings_are_errors: FALSE
 before_install:
   - sudo apt-get update
+  - brew install udunits
 
+addons:
+  apt:
+    packages:
+      - libudunits2-dev
