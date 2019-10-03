@@ -2,5 +2,6 @@ language: r
 cache: packages
 
 warnings_are_errors: FALSE
-
+before_install:
+  - sudo apt-get update
 
