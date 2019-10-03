@@ -47,7 +47,7 @@ Once you are satisfied with the color palettes you created, you can send your ex
 We are happy with any reasonable suggestions and improvements on existing palettes. Go to https://github.com/nschiett/fishualize/issues, start a new issue with the label “enhancement” and suggest an alternative color palette.
 
 ### I love fishualize. Can I put the fishualize hexagon sticker on my laptop?
-Yes, by all means! Go for it! Not nerdy at all 
+Yes, by all means! Go for it! Not nerdy at all.
 
 
 

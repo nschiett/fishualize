@@ -63,7 +63,7 @@ image(volcano, col = pal)
 ggplot2
 -------
 
-The package also contains color scale functions for **ggplot** plots:
+The package also contains color scale functions for **ggplot2** plots:
 `scale_color_fish()` and `scale_fill_fish()`.
 
 ``` r
@@ -130,8 +130,20 @@ and continuous color schemes on a world-map.
 
 ``` r
 #load rnaturalearth and rnaturalearthdata packages
-library("rnaturalearth")
-library("rnaturalearthdata")
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(rgeos)
+```
+
+    ## Loading required package: sp
+
+    ## rgeos version: 0.5-2, (SVN revision 621)
+    ##  GEOS runtime version: 3.5.1-CAPI-1.9.1 
+    ##  Linking to sp version: 1.3-1 
+    ##  Polygon checking: TRUE
+
+``` r
+library(ggplot2)
 
 #get dataset of the world's countries
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -224,4 +236,4 @@ Credits
 
 Credits for the initial structure of the functions for this package go
 to the `harrypotter` package made by Alejandro Jiménez:
-<a href="https://github.com/aljrico/harrypotter" class="uri">https://github.com/aljrico/harrypotter</a>
+<https://github.com/aljrico/harrypotter>
