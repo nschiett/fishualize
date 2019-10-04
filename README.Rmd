@@ -93,6 +93,8 @@ spp <- fishualize::fish_palettes()
 # 2. Get data on the included species from FishBase using the rfishbase package
 dt <- rfishbase::species(gsub("_"," ", spp))
 
+dt$Importance = factor(dt$Importance, levels = c("highly commercial", "commercial", "minor commercial", "subsistence fisheries", "of no interest"))
+
 # plot bars with discrete colors using color scheme provided by Scarus quoyi
 ggplot(dt[!is.na(dt$Importance),]) +
   geom_bar(aes(x = Importance, fill = Importance)) +
@@ -113,7 +115,7 @@ data <- rfishbase::ecology(gsub("_"," ", spp), c("SpecCode","FeedingType", "Diet
 # plot boxplots of length across feeding groups using discrete colors provided by Cirrilabrus solorensis
 ggplot(data[!is.na(data$FeedingType),]) +
   geom_boxplot(aes(x = FeedingType, y = log(Length), fill = FeedingType )) +
-  scale_fill_fish_d(option = "Cirrhilabrus_solorensis") +
+  scale_fill_fish_d(option = "Cirrhilabrus_solorensis", labels = c("invertivore", "herbivore", "carnivore", "planktivore", "omnivore")) +
   theme_bw() +
   theme(axis.text.x= element_blank() )
 
