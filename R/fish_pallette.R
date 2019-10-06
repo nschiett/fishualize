@@ -82,6 +82,10 @@ fish_palettes <- function(){
 #'
 fish <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "Chlorurus_microrhinos") {
 
+  if(!option %in% fishcolors$option) {
+    stop("Unknown, or possibly misspelled, fish species.")
+  }
+
 
   if (begin < 0 | begin > 1 | end < 0 | end > 1) {
     stop("begin and end must be in [0,1]")
