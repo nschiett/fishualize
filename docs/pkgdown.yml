@@ -4,7 +4,4 @@ pkgdown_sha: ~
 articles:
   contribute: contribute.html
   overview_colors: overview_colors.html
-urls:
-  reference: https://nschiett.github.io/fishualize//reference
-  article: https://nschiett.github.io/fishualize//articles
 
