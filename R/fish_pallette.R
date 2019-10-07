@@ -27,7 +27,7 @@
 #' @export
 
 fish_palettes <- function(){
-  return(sort(unique(fishcolors$option)))
+  return(sort(unique(fishualize::fishcolors$option)))
 }
 
 #'
@@ -80,10 +80,10 @@ fish_palettes <- function(){
 #' @rdname fish
 #' @export
 #'
-fish <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "Chlorurus_microrhinos") {
+fish <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "Centropyge_loricula") {
 
-  if(!option %in% fishcolors$option) {
-    stop("Unknown, or possibly misspelled, fish species.")
+  if(!option %in% fishualize::fishcolors$option) {
+    stop("Unknown, or possibly misspelled fish species.")
   }
 
 
@@ -101,7 +101,7 @@ fish <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "Chlo
     end <- tmp
   }
 
-  map <- fishcolors[fishcolors$option == option, ]
+  map <- fishualize::fishcolors[fishualize::fishcolors$option == option, ]
 
   map_cols <- map$hex
   fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
@@ -114,7 +114,7 @@ fish <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "Chlo
 #' @rdname fish
 #'
 #' @export
-fish_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = 'Ostracion_cubicus') {
+fish_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = 'Centropyge_loricula') {
 
 
   function(n) {
@@ -128,7 +128,7 @@ fish_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = 'Ost
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #'
 #' @export
-scale_color_fish <- function(option = 'Ostracion_cubicus', ..., alpha = 1, begin = 0, end = 1, direction = 1,
+scale_color_fish <- function(option = 'Centropyge_loricula', ..., alpha = 1, begin = 0, end = 1, direction = 1,
                            discrete = FALSE) {
 
   if (discrete) {
@@ -147,7 +147,7 @@ scale_colour_fish <- scale_color_fish
 #' @rdname scale_fish
 #' @aliases scale_color_fish
 #' @export
-scale_colour_fish_d <- function(option = 'Chlorurus_microrhinos', ..., alpha = 1, begin = 0, end = 1,
+scale_colour_fish_d <- function(option = 'Centropyge_loricula', ..., alpha = 1, begin = 0, end = 1,
                               direction = 1) {
   discrete_scale("colour", "fish", fish_pal(alpha, begin, end, direction, option), ...)
 }
@@ -162,7 +162,7 @@ scale_color_fish_d <- scale_colour_fish_d
 #' @aliases scale_fill_fish
 #' @importFrom ggplot2 discrete_scale
 #' @export
-scale_fill_fish_d <- function(option = 'Chlorurus_microrhinos' , ..., alpha = 1, begin = 0, end = 1,
+scale_fill_fish_d <- function(option = 'Centropyge_loricula' , ..., alpha = 1, begin = 0, end = 1,
                             direction = 1) {
   discrete_scale("fill", "fish", fish_pal(alpha, begin, end, direction, option), ...)
 }
@@ -205,23 +205,23 @@ scale_fill_fish_d <- function(option = 'Chlorurus_microrhinos' , ..., alpha = 1,
 #'
 #'
 #'
-#' ggplot(mtcars, aes(factor(cyl), fill=factor(vs))) +
+#' ggplot(diamonds, aes(factor(cut), fill=factor(cut))) +
 #' geom_bar() +
-#' scale_fill_fish(discrete = TRUE, option = "Trimma_lantana")
+#' scale_fill_fish(discrete = TRUE, option = "Centropyge_loricula")
 #'
 #' ggplot(mtcars, aes(factor(gear), fill=factor(carb))) +
 #' geom_bar() +
 #' scale_fill_fish(discrete = TRUE, option = "Trimma_lantana")
 #'
 #' ggplot(mtcars, aes(x = mpg, y = disp, colour = drat)) +
-#' geom_point(size = 2) +
-#' scale_colour_fish(option = "Trimma_lantana")
+#' geom_point(size = 4) +
+#' scale_colour_fish(option = "Ostracion_cubicus", direction = -1)
 #'
 #'
 #'
 #'
 #' @export
-scale_fill_fish <- function(option = 'Ostracion_cubicus', ..., alpha = 1, begin = 0, end = 1, direction = 1,
+scale_fill_fish <- function(option = 'Centropyge_loricula', ..., alpha = 1, begin = 0, end = 1, direction = 1,
                           discrete = FALSE) {
 
   if (discrete) {

@@ -9,22 +9,22 @@
 \alias{scale_fill_fish}
 \title{fish colour scales}
 \usage{
-scale_color_fish(option = "Ostracion_cubicus", ..., alpha = 1,
+scale_color_fish(option = "Centropyge_loricula", ..., alpha = 1,
   begin = 0, end = 1, direction = 1, discrete = FALSE)
 
-scale_colour_fish(option = "Ostracion_cubicus", ..., alpha = 1,
+scale_colour_fish(option = "Centropyge_loricula", ..., alpha = 1,
   begin = 0, end = 1, direction = 1, discrete = FALSE)
 
-scale_colour_fish_d(option = "Chlorurus_microrhinos", ..., alpha = 1,
+scale_colour_fish_d(option = "Centropyge_loricula", ..., alpha = 1,
   begin = 0, end = 1, direction = 1)
 
-scale_color_fish_d(option = "Chlorurus_microrhinos", ..., alpha = 1,
+scale_color_fish_d(option = "Centropyge_loricula", ..., alpha = 1,
   begin = 0, end = 1, direction = 1)
 
-scale_fill_fish_d(option = "Chlorurus_microrhinos", ..., alpha = 1,
+scale_fill_fish_d(option = "Centropyge_loricula", ..., alpha = 1,
   begin = 0, end = 1, direction = 1)
 
-scale_fill_fish(option = "Ostracion_cubicus", ..., alpha = 1,
+scale_fill_fish(option = "Centropyge_loricula", ..., alpha = 1,
   begin = 0, end = 1, direction = 1, discrete = FALSE)
 }
 \arguments{
@@ -57,17 +57,17 @@ library(ggplot2)
 
 
 
-ggplot(mtcars, aes(factor(cyl), fill=factor(vs))) +
+ggplot(diamonds, aes(factor(cut), fill=factor(cut))) +
 geom_bar() +
-scale_fill_fish(discrete = TRUE, option = "Trimma_lantana")
+scale_fill_fish(discrete = TRUE, option = "Centropyge_loricula")
 
 ggplot(mtcars, aes(factor(gear), fill=factor(carb))) +
 geom_bar() +
 scale_fill_fish(discrete = TRUE, option = "Trimma_lantana")
 
 ggplot(mtcars, aes(x = mpg, y = disp, colour = drat)) +
-geom_point(size = 2) +
-scale_colour_fish(option = "Trimma_lantana")
+geom_point(size = 4) +
+scale_colour_fish(option = "Ostracion_cubicus", direction = -1)
 
 
 

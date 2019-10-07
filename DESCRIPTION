@@ -1,9 +1,9 @@
 Package: fishualize
 Type: Package
-Title: Color palettes based on fish
+Title: Color palettes based on fish species
 Version: 0.1.0
 Authors@R: c(
-    person("Nina", "Schiettekatte", email = "nina.schiettekatte@gmail.com", role = "cre"),
+    person("Nina", "Schiettekatte", email = "nina.schiettekatte@gmail.com", role = c("cre", "aut")),
     person("Simon", "Brandl", role = "aut"),
     person("Jordan", "Casey",  role = "aut"))
 Maintainer: Nina Schiettekatte <nina.schiettekatte@gmail.com>

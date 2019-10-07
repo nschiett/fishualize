@@ -6,10 +6,10 @@
 \title{fish Colour Map.}
 \usage{
 fish(n, alpha = 1, begin = 0, end = 1, direction = 1,
-  option = "Chlorurus_microrhinos")
+  option = "Centropyge_loricula")
 
 fish_pal(alpha = 1, begin = 0, end = 1, direction = 1,
-  option = "Ostracion_cubicus")
+  option = "Centropyge_loricula")
 }
 \arguments{
 \item{n}{The number of colors (\eqn{\ge 1}) to be in the palette.}
