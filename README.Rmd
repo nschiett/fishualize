@@ -188,6 +188,9 @@ ggplot(data = world) +
 ## Contribute
 Love it? Missing your favorite species? Check out how you can contribute to this package [here](https://nschiett.github.io/fishualize/articles/contribute.html)
 
+## Acknowledgements
+Thanks to everyone contributing to the color palettes: Jindra Lacko, Andrew Steinkruger.
+
 ## Credits
 
 Credits for the initial structure of the functions for this package go to the `harrypotter` package made by Alejandro Jiménez: https://github.com/aljrico/harrypotter

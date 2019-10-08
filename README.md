@@ -123,7 +123,7 @@ ggplot(data) +
   theme_bw()
 ```
 
-    ## Warning: Removed 44 rows containing missing values (geom_point).
+    ## Warning: Removed 45 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-4.png" width="672" />
 
@@ -218,6 +218,12 @@ Contribute
 Love it? Missing your favorite species? Check out how you can contribute
 to this package
 [here](https://nschiett.github.io/fishualize/articles/contribute.html)
+
+Acknowledgements
+----------------
+
+Thanks to everyone contributing to the color palettes: Jindra Lacko,
+Andrew Steinkruger.
 
 Credits
 -------
