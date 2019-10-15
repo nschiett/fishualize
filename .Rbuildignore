@@ -6,3 +6,6 @@
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^.travis.yml$
+^README.Rmd$
+^README_files$
