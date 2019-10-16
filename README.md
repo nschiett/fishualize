@@ -123,7 +123,7 @@ ggplot(data) +
   theme_bw()
 ```
 
-    ## Warning: Removed 45 rows containing missing values (geom_point).
+    ## Warning: Removed 46 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-4.png" width="672" />
 
@@ -223,7 +223,7 @@ Acknowledgements
 ----------------
 
 Thanks to everyone contributing to the color palettes: Jindra Lacko,
-Andrew Steinkruger.
+Andrew Steinkruger, Adam Smith.
 
 Credits
 -------

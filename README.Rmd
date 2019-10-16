@@ -189,7 +189,7 @@ ggplot(data = world) +
 Love it? Missing your favorite species? Check out how you can contribute to this package [here](https://nschiett.github.io/fishualize/articles/contribute.html)
 
 ## Acknowledgements
-Thanks to everyone contributing to the color palettes: Jindra Lacko, Andrew Steinkruger.
+Thanks to everyone contributing to the color palettes: Jindra Lacko, Andrew Steinkruger, Adam Smith.
 
 ## Credits
 
