@@ -36,6 +36,21 @@ list of fish species that are currently available, run
 A visual overview of the color scales can be found
 [here](https://nschiett.github.io/fishualize/articles/overview_colors.html).
 
+To visualize a fish color palette, you can run `fishualize()` and
+specify your choice.
+
+``` r
+fishualize()
+```
+
+<img src="README_files/figure-markdown_github/tldr_vis-1.png" width="672" />
+
+``` r
+fishualize(n = 8, option = "Hypsypops_rubicundus", end = 0.9)
+```
+
+<img src="README_files/figure-markdown_github/tldr_vis-2.png" width="672" />
+
 Usage
 =====
 
@@ -123,7 +138,7 @@ ggplot(data) +
   theme_bw()
 ```
 
-    ## Warning: Removed 46 rows containing missing values (geom_point).
+    ## Warning: Removed 48 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-4.png" width="672" />
 

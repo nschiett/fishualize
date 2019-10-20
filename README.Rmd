@@ -33,27 +33,21 @@ library(fishualize)
 ```
 
 
-
+```{r setup, include=FALSE}
+library(fishualize)
+knitr::opts_chunk$set(echo = TRUE, fig.retina=2, fig.width=7, fig.height=5)
+```
 
 # The color scales
 
 The package contains one scale per species, defined by five dominant colors. The number of fishualized species will expand over time. For a list of fish species that are currently available, run `fish_palettes()`.  
-A visual overview of the color scales can be found [here]( https://nschiett.github.io/fishualize/articles/overview_colors.html). 
+A visual overview of the color scales can be found [here]( https://nschiett.github.io/fishualize/articles/overview_colors.html).   
 
+To visualize a fish color palette, you can run `fishualize()` and specify your choice.
 
-```{r for_repeat, include=FALSE}
-n_col <- 128
-img <- function(obj, nam) {
-  image(1:length(obj), 1, as.matrix(1:length(obj)), col=obj, 
-        main = nam, ylab = "", xaxt = "n", yaxt = "n",  bty = "n")
-}
-```
-
-```{r begin, message=FALSE, include=FALSE}
-library(fishualize)
-library(scales)
-library(colorspace)
-library(dichromat)
+```{r tldr_vis, message=FALSE}
+fishualize()
+fishualize(n = 8, option = "Hypsypops_rubicundus", end = 0.9)
 ```
 
 
@@ -62,11 +56,6 @@ library(dichromat)
 The `fish()` function produces the fish color scale based on your favorite species, which can be specified using ‘option’ = “Your_favorite” or fish_palettes()[] with the number of your species specified.
 
 For base R plots, use the `fish()` function to generate a palette:
-
-```{r setup, include=FALSE}
-library(fishualize)
-knitr::opts_chunk$set(echo = TRUE, fig.retina=2, fig.width=7, fig.height=5)
-```
 
 
 ```{r tldr_base, message=FALSE}

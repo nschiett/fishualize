@@ -24,7 +24,7 @@ fish_pal(alpha = 1, begin = 0, end = 1, direction = 1,
 \item{direction}{Sets the order of colors in the scale. If 1, the default, colors
 are ordered from darkest to lightest. If -1, the order of colors is reversed.}
 
-\item{option}{A character string indicating the colourmap from a option to use.}
+\item{option}{A character string indicating the fish species to use.}
 }
 \value{
 \code{fish} returns a character vector, \code{cv}, of color hex

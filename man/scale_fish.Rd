@@ -54,7 +54,7 @@ number of colors.
 }
 \examples{
 library(ggplot2)
-
+library(fishualize)
 
 
 ggplot(diamonds, aes(factor(cut), fill=factor(cut))) +

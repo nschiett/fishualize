@@ -51,7 +51,7 @@ fish_palettes <- function(){
 #' @param direction Sets the order of colors in the scale. If 1, the default, colors
 #' are ordered from darkest to lightest. If -1, the order of colors is reversed.
 #'
-#' @param option A character string indicating the colourmap from a option to use.
+#' @param option A character string indicating the fish species to use.
 #'
 #'
 #' @return \code{fish} returns a character vector, \code{cv}, of color hex
@@ -80,9 +80,10 @@ fish_palettes <- function(){
 #' @rdname fish
 #' @export
 #'
-fish <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "Centropyge_loricula") {
+fish <- function(n, alpha = 1, begin = 0, end = 1, direction = 1,
+                 option = "Centropyge_loricula") {
 
-  if(!option %in% fishualize::fishcolors$option) {
+  if (!option %in% fishualize::fishcolors$option) {
     stop("Unknown, or possibly misspelled fish species.")
   }
 
@@ -104,22 +105,53 @@ fish <- function(n, alpha = 1, begin = 0, end = 1, direction = 1, option = "Cent
   map <- fishualize::fishcolors[fishualize::fishcolors$option == option, ]
 
   map_cols <- map$hex
-  fn_cols <- grDevices::colorRamp(map_cols, space = "Lab", interpolate = "spline")
+  fn_cols <- grDevices::colorRamp(map_cols, space = "Lab",
+                                  interpolate = "spline")
   cols <- fn_cols(seq(begin, end, length.out = n)) / 255
   grDevices::rgb(cols[, 1], cols[, 2], cols[, 3], alpha = alpha)
 }
 
 
-
 #' @rdname fish
 #'
 #' @export
-fish_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = 'Centropyge_loricula') {
+fish_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1,
+                     option = "Centropyge_loricula") {
 
 
   function(n) {
     fish(n, alpha, begin, end, direction, option)
   }
+}
+
+#' Visualization of fish color palette
+#'
+#' This function creates an image of the specified fish color palette.
+#'
+#' @param option A character string indicating the fish species to use.
+#'
+#' @param n The number of colors (\eqn{\ge 1}) to be in the palette.
+#'
+#' @param ... Other arguments as can be specified in the function \code{fish}.
+#' See ?fishualize::fish for details.
+#'
+#'
+#' @return \code{fishualize} returns a visualisation of the specified color palette.
+#'
+#' @examples
+#'
+#' fishualize::fishualize()
+#' fishualize::fishualize(option = "Zanclus_cornutus", n = 8)
+#'
+#' @rdname fishualize
+#' @importFrom graphics image
+#' @export
+#'
+
+fishualize <- function(option = "Centropyge_loricula", n = 5, ...) {
+  col <- fishualize::fish(n = n, option = option, ...)
+  image(1:n, 1, as.matrix(1:n), col = col,
+        main = "", ylab = "", xlab = " ", xaxt = "n", yaxt = "n",  bty = "n")
 }
 
 
@@ -128,13 +160,16 @@ fish_pal <- function(alpha = 1, begin = 0, end = 1, direction = 1, option = 'Cen
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #'
 #' @export
-scale_color_fish <- function(option = 'Centropyge_loricula', ..., alpha = 1, begin = 0, end = 1, direction = 1,
-                           discrete = FALSE) {
+scale_color_fish <- function(option = "Centropyge_loricula", ...,
+                             alpha = 1, begin = 0, end = 1, direction = 1,
+                             discrete = FALSE) {
 
   if (discrete) {
-    discrete_scale("colour", "fish", fish_pal(alpha, begin, end, direction, option), ...)
+    discrete_scale("colour", "fish",
+                   fish_pal(alpha, begin, end, direction, option), ...)
   } else {
-    scale_color_gradientn(colours = fish(256, alpha, begin, end, direction, option), ...)
+    scale_color_gradientn(colours =
+              fish(256, alpha, begin, end, direction, option), ...)
   }
 }
 
@@ -147,9 +182,11 @@ scale_colour_fish <- scale_color_fish
 #' @rdname scale_fish
 #' @aliases scale_color_fish
 #' @export
-scale_colour_fish_d <- function(option = 'Centropyge_loricula', ..., alpha = 1, begin = 0, end = 1,
-                              direction = 1) {
-  discrete_scale("colour", "fish", fish_pal(alpha, begin, end, direction, option), ...)
+scale_colour_fish_d <- function(option = "Centropyge_loricula", ...,
+                                alpha = 1, begin = 0, end = 1,
+                                direction = 1) {
+  discrete_scale("colour", "fish",
+                 fish_pal(alpha, begin, end, direction, option), ...)
 }
 
 #' @rdname scale_fish
@@ -162,9 +199,11 @@ scale_color_fish_d <- scale_colour_fish_d
 #' @aliases scale_fill_fish
 #' @importFrom ggplot2 discrete_scale
 #' @export
-scale_fill_fish_d <- function(option = 'Centropyge_loricula' , ..., alpha = 1, begin = 0, end = 1,
-                            direction = 1) {
-  discrete_scale("fill", "fish", fish_pal(alpha, begin, end, direction, option), ...)
+scale_fill_fish_d <- function(option = "Centropyge_loricula", ...,
+                              alpha = 1, begin = 0, end = 1,
+                              direction = 1) {
+  discrete_scale("fill", "fish",
+                 fish_pal(alpha, begin, end, direction, option), ...)
 }
 
 
@@ -202,7 +241,7 @@ scale_fill_fish_d <- function(option = 'Centropyge_loricula' , ..., alpha = 1, b
 #'
 #' @examples
 #' library(ggplot2)
-#'
+#' library(fishualize)
 #'
 #'
 #' ggplot(diamonds, aes(factor(cut), fill=factor(cut))) +
@@ -221,14 +260,14 @@ scale_fill_fish_d <- function(option = 'Centropyge_loricula' , ..., alpha = 1, b
 #'
 #'
 #' @export
-scale_fill_fish <- function(option = 'Centropyge_loricula', ..., alpha = 1, begin = 0, end = 1, direction = 1,
-                          discrete = FALSE) {
+scale_fill_fish <- function(option = "Centropyge_loricula", ...,
+                            alpha = 1, begin = 0, end = 1, direction = 1,
+                            discrete = FALSE) {
 
   if (discrete) {
-    discrete_scale("fill", "fish", fish_pal(alpha, begin, end, direction, option), ...)
+    discrete_scale("fill", "fish",
+            fish_pal(alpha, begin, end, direction, option), ...)
   } else {
-    scale_fill_gradientn(colours = fish(256, alpha, begin, end, direction, option), ...)
+    scale_fill_gradientn(colours =
+            fish(256, alpha, begin, end, direction, option), ...)
   }}
-
-
-
