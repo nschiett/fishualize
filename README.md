@@ -2,10 +2,15 @@
 -   [The color scales](#the-color-scales)
 -   [Usage](#usage)
 
+<!-- badges: start -->
 [![Build
 Status](https://api.travis-ci.org/nschiett/fishualize.png?branch=master)](https://travis-ci.org/nschiett/fishualize)
-\[![GitHub All
-Releases](https://img.shields.io/github/downloads/nschiett/fishualize/total)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/fishualize)](https://CRAN.R-project.org/package=fishualize)
+[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/fishualize?color=brightgreen)](https://cran.rstudio.com/package=fishualize)
+![GitHub All
+Releases](https://img.shields.io/github/downloads/nschiett/fishualize/total?color=brightgreen)
+<!-- badges: end -->
 
 <img src="man/figures/fishualize_logo.png" width = 120 alt="fishflux logo"/>
 
@@ -19,6 +24,13 @@ cameos). \#TeamFish in its colorful glory.
 
 Installation
 ------------
+
+``` r
+install.packages("fishualize")
+library(fishualize)
+```
+
+or for the latest development version:
 
 ``` r
 library(devtools)

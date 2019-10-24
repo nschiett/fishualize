@@ -9,10 +9,13 @@ output:
     toc: true
     toc_depth: 1
 ---
-
-
+<!-- badges: start -->
 [![Build Status](https://api.travis-ci.org/nschiett/fishualize.png?branch=master)](https://travis-ci.org/nschiett/fishualize)
-[![GitHub All Releases](https://img.shields.io/github/downloads/nschiett/fishualize/total)
+[![CRAN status](https://www.r-pkg.org/badges/version/fishualize)](https://CRAN.R-project.org/package=fishualize)
+[![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/fishualize?color=brightgreen)](https://cran.rstudio.com/package=fishualize)
+![GitHub All Releases](https://img.shields.io/github/downloads/nschiett/fishualize/total?color=brightgreen)
+<!-- badges: end -->
+
 
 <img src="man/figures/fishualize_logo.png" width = 120 alt="fishflux logo"/>
 
@@ -25,7 +28,11 @@ The [**fishualize**](http:://github.com/nschiett/fishualize) package provides co
 
 ## Installation
 
-
+```{r, eval = FALSE}
+install.packages("fishualize")
+library(fishualize)
+```
+or for the latest development version:
 ```{r, eval = FALSE}
 library(devtools)
 devtools::install_github("nschiett/fishualize", force = TRUE)
