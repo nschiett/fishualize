@@ -8,8 +8,6 @@ Status](https://api.travis-ci.org/nschiett/fishualize.png?branch=master)](https:
 [![CRAN
 status](https://www.r-pkg.org/badges/version/fishualize)](https://CRAN.R-project.org/package=fishualize)
 [![Downloads](http://cranlogs.r-pkg.org/badges/grand-total/fishualize?color=brightgreen)](https://cran.rstudio.com/package=fishualize)
-![GitHub All
-Releases](https://img.shields.io/github/downloads/nschiett/fishualize/total?color=brightgreen)
 <!-- badges: end -->
 
 <img src="man/figures/fishualize_logo.png" width = 120 alt="fishflux logo"/>
@@ -245,6 +243,22 @@ Contribute
 Love it? Missing your favorite species? Check out how you can contribute
 to this package
 [here](https://nschiett.github.io/fishualize/articles/contribute.html)
+
+Citation
+--------
+
+To cite package `fishualize` in publications use:
+
+Nina Schiettekatte, Simon Brandl and Jordan Casey (2019). fishualize:
+Color Palettes Based on Fish Species. R package version 0.1.0.
+<https://CRAN.R-project.org/package=fishualize>
+
+A BibTeX entry for LaTeX users is
+
+@Manual{, title = {fishualize: Color Palettes Based on Fish Species},
+author = {Nina Schiettekatte and Simon Brandl and Jordan Casey}, year =
+{2019}, note = {R package version 0.1.0}, url =
+{<https://CRAN.R-project.org/package=fishualize>}, }
 
 Acknowledgements
 ----------------
