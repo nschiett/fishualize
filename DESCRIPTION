@@ -27,6 +27,12 @@ Imports:
     ggplot2 (>= 1.0.1),
     gridExtra,
     grid,
-    png
+    png,
+    imager,
+    httr,
+    magrittr,
+    stringr,
+    dplyr,
+    tidyr
 RoxygenNote: 7.0.2
 VignetteBuilder: knitr

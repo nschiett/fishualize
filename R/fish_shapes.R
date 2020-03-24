@@ -1,3 +1,54 @@
+#' Available fish silhouettes
+#'
+#' This function returns a dataframe containing the all the available fish
+#' silhouettes accessible through the 'fishualize' package.
+#'
+#' @return \code{fishapes} returns a dataframe containing the all the available fish
+#' silhouettes available to use.
+#'
+#' @importFrom httr GET
+#' @importFrom httr stop_for_status
+#' @importFrom httr content
+#' @importFrom magrittr "%>%"
+#' @importFrom stringr str_split
+#' @importFrom stringr str_subset
+#' @importFrom stringr str_sub
+#' @importFrom stringr str_replace
+#' @importFrom tidyr separate
+#' @importFrom dplyr mutate
+#'
+#'
+#' @examples
+#' fishapes()
+#'
+#' @rdname fishapes
+#' @export
+
+
+
+fishapes <- function(){
+
+
+  req <- httr::GET("https://github.com/simonjbrandl/fishape/tree/master/shapes")
+  httr::stop_for_status(req)
+  text <- httr::content(req, "text")
+
+  text_sub <- stringr::str_split(text, "\\s+")[[1]] %>%
+    stringr::str_subset(".png")  %>%
+    stringr::str_subset("title") %>%
+    stringr::str_sub(start = 8, end = -6)
+
+  df <- data.frame(text_sub = text_sub) %>%
+    tidyr::separate(text_sub, into = c("family", "option"), sep = "_") %>%
+    dplyr::mutate(option = stringr::str_replace(.data$option, "[.]", "_"))
+
+  return(df)
+}
+
+
+
+
+
 #' fish silhouette in ggplot2
 #'
 #' Adds a fish silhouette to your plot
@@ -9,7 +60,7 @@
 #' @param xmax x location (in data coordinates) giving horizontal location of raster
 #' @param ymin y location (in data coordinates) giving vertical location of raster
 #' @param ymax y location (in data coordinates) giving vertical location of raster
-#'
+#' @param fill color of fish shape
 #'
 #' @rdname add_fishape
 #'
@@ -35,7 +86,10 @@
 #'
 #' @export
 #'
-add_fishape <- function(family = "Acanthuridae", option = NA, xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf, fill = "#000000"){
+add_fishape <- function(family = "Acanthuridae",
+                        option = NA,
+                        xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf,
+                        fill = "#000000"){
 
   shapes <- fishapes()
 

@@ -27,6 +27,8 @@ If NA the first avalable option within a family will be used}
 \item{ymin}{y location (in data coordinates) giving vertical location of raster}
 
 \item{ymax}{y location (in data coordinates) giving vertical location of raster}
+
+\item{fill}{color of fish shape}
 }
 \description{
 Adds a fish silhouette to your plot
