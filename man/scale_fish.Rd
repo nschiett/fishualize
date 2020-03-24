@@ -9,23 +9,62 @@
 \alias{scale_fill_fish}
 \title{fish colour scales}
 \usage{
-scale_color_fish(option = "Centropyge_loricula", ..., alpha = 1,
-  begin = 0, end = 1, direction = 1, discrete = FALSE)
+scale_color_fish(
+  option = "Centropyge_loricula",
+  ...,
+  alpha = 1,
+  begin = 0,
+  end = 1,
+  direction = 1,
+  discrete = FALSE
+)
 
-scale_colour_fish(option = "Centropyge_loricula", ..., alpha = 1,
-  begin = 0, end = 1, direction = 1, discrete = FALSE)
+scale_colour_fish(
+  option = "Centropyge_loricula",
+  ...,
+  alpha = 1,
+  begin = 0,
+  end = 1,
+  direction = 1,
+  discrete = FALSE
+)
 
-scale_colour_fish_d(option = "Centropyge_loricula", ..., alpha = 1,
-  begin = 0, end = 1, direction = 1)
+scale_colour_fish_d(
+  option = "Centropyge_loricula",
+  ...,
+  alpha = 1,
+  begin = 0,
+  end = 1,
+  direction = 1
+)
 
-scale_color_fish_d(option = "Centropyge_loricula", ..., alpha = 1,
-  begin = 0, end = 1, direction = 1)
+scale_color_fish_d(
+  option = "Centropyge_loricula",
+  ...,
+  alpha = 1,
+  begin = 0,
+  end = 1,
+  direction = 1
+)
 
-scale_fill_fish_d(option = "Centropyge_loricula", ..., alpha = 1,
-  begin = 0, end = 1, direction = 1)
+scale_fill_fish_d(
+  option = "Centropyge_loricula",
+  ...,
+  alpha = 1,
+  begin = 0,
+  end = 1,
+  direction = 1
+)
 
-scale_fill_fish(option = "Centropyge_loricula", ..., alpha = 1,
-  begin = 0, end = 1, direction = 1, discrete = FALSE)
+scale_fill_fish(
+  option = "Centropyge_loricula",
+  ...,
+  alpha = 1,
+  begin = 0,
+  end = 1,
+  direction = 1,
+  discrete = FALSE
+)
 }
 \arguments{
 \item{option}{A character string indicating the fish species to use.}

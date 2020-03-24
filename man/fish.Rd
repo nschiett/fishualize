@@ -5,11 +5,22 @@
 \alias{fish_pal}
 \title{fish Colour Map.}
 \usage{
-fish(n, alpha = 1, begin = 0, end = 1, direction = 1,
-  option = "Centropyge_loricula")
+fish(
+  n,
+  alpha = 1,
+  begin = 0,
+  end = 1,
+  direction = 1,
+  option = "Centropyge_loricula"
+)
 
-fish_pal(alpha = 1, begin = 0, end = 1, direction = 1,
-  option = "Centropyge_loricula")
+fish_pal(
+  alpha = 1,
+  begin = 0,
+  end = 1,
+  direction = 1,
+  option = "Centropyge_loricula"
+)
 }
 \arguments{
 \item{n}{The number of colors (\eqn{\ge 1}) to be in the palette.}
