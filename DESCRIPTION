@@ -33,6 +33,7 @@ Imports:
     magrittr,
     stringr,
     dplyr,
-    tidyr
+    tidyr,
+    scales
 RoxygenNote: 7.0.2
 VignetteBuilder: knitr

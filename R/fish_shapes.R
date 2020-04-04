@@ -56,11 +56,18 @@ fishapes <- function(){
 #' @param family A character string indicating the fish family to use.
 #' @param option A character string indicating the fish species to use.
 #' If NA the first avalable option within a family will be used
-#' @param xmin x location (in data coordinates) giving horizontal location of raster
-#' @param xmax x location (in data coordinates) giving horizontal location of raster
-#' @param ymin y location (in data coordinates) giving vertical location of raster
-#' @param ymax y location (in data coordinates) giving vertical location of raster
+#' @param xmin x location giving horizontal location of raster
+#' @param xmax x location giving horizontal location of raster
+#' @param ymin y location giving vertical location of raster
+#' @param ymax y location giving vertical location of raster
+#' @param absolute logical parameter stating whether or not locations of
+#' coordinates are provided in absolute data coordinates.
+#' If set to FALSE, the locations of the x and y coordinates
+#' should range between 0 and 1.
+#' @param xlim,ylim vectors of length = 2, containing the limits of the data.
+#' These have to be provided if absolute is set to FALSE.
 #' @param fill color of fish shape
+#' @param alpha transparancy of fish shape (should range between 0 and 1)
 #'
 #' @rdname add_fishape
 #'
@@ -68,6 +75,7 @@ fishapes <- function(){
 #' @importFrom ggplot2 annotation_custom
 #' @importFrom grid rasterGrob
 #' @importFrom imager load.image
+#' @importFrom scales alpha
 #'
 #'
 #' @examples
@@ -81,7 +89,8 @@ fishapes <- function(){
 #'   add_fishape(family = "Acanthuridae",
 #'               option = "Naso_unicornis",
 #'               xmin = 1, xmax = 3, ymin = 15000, ymax = 20000,
-#'               fill = fish(option = "Naso_lituratus", n = 4)[2]) +
+#'               fill = fish(option = "Naso_lituratus", n = 4)[2],
+#'               alpha = 0.8) +
 #'   theme_bw()
 #'
 #' @export
@@ -89,7 +98,12 @@ fishapes <- function(){
 add_fishape <- function(family = "Acanthuridae",
                         option = NA,
                         xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf,
-                        fill = "#000000"){
+                        absolute = TRUE,
+                        xlim = NULL, ylim = NULL,
+                        fill = "#000000",
+                        alpha = 1){
+
+  # check if shape is available
 
   shapes <- fishapes()
 
@@ -105,15 +119,50 @@ add_fishape <- function(family = "Acanthuridae",
     stop("This species option is not available or misspelled")
   }
 
+  # get shape
+
   url <- paste0(
     "https://raw.githubusercontent.com/simonjbrandl/fishape/master/shapes/",
     family, "_", gsub("_", ".", option), ".png")
 
   img <- imager::load.image(url)
   g <- grid::rasterGrob(img, interpolate=TRUE)
+
+  # reset color and alpha
   oldcol <- names(sort(table(g$raster), decreasing=TRUE)[1])
   newcol <- fill
+  newcol <- scales::alpha(newcol, alpha)
   g$raster[g$raster == oldcol] <- newcol
   g$raster[g$raster == "#FFFFFF"] <- NA
-  ggplot2::annotation_custom(g, xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)
+
+  # possibility to rescale
+  if (absolute == FALSE){
+    ## first check if all info is there
+    if(xmin < 0 | xmax > 1 | ymin < 0 | ymax > 1 |
+       is.null(xlim) | is.null(ylim)){
+      stop("If absolute = FALSE,
+           min and max of x and y gave to lie between 0 and 1 and
+           xlim and ylim have to be defined")
+    }
+    ## rescale to absolute
+    xmin2 <- ((xlim[2] - xlim[1]) * xmin) + xlim[1]
+    xmax2 <- ((xlim[2] - xlim[1]) * xmax) + xlim[1]
+    ymin2 <- ((ylim[2] - ylim[1]) * ymin) + ylim[1]
+    ymax2 <- ((ylim[2] - ylim[1]) * ymax) + ylim[1]
+
+    ggplot2::annotation_custom(g, xmin = xmin2, xmax = xmax2,
+                               ymin = ymin2, ymax = ymax2)
+
+  } else{
+    ggplot2::annotation_custom(g, xmin = xmin, xmax = xmax,
+                               ymin = ymin, ymax = ymax)
+  }
+
 }
+
+
+
+
+
+
+

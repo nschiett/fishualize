@@ -11,7 +11,11 @@ add_fishape(
   xmax = Inf,
   ymin = -Inf,
   ymax = Inf,
-  fill = "#000000"
+  absolute = TRUE,
+  xlim = NULL,
+  ylim = NULL,
+  fill = "#000000",
+  alpha = 1
 )
 }
 \arguments{
@@ -20,15 +24,25 @@ add_fishape(
 \item{option}{A character string indicating the fish species to use.
 If NA the first avalable option within a family will be used}
 
-\item{xmin}{x location (in data coordinates) giving horizontal location of raster}
+\item{xmin}{x location giving horizontal location of raster}
 
-\item{xmax}{x location (in data coordinates) giving horizontal location of raster}
+\item{xmax}{x location giving horizontal location of raster}
 
-\item{ymin}{y location (in data coordinates) giving vertical location of raster}
+\item{ymin}{y location giving vertical location of raster}
 
-\item{ymax}{y location (in data coordinates) giving vertical location of raster}
+\item{ymax}{y location giving vertical location of raster}
+
+\item{absolute}{logical parameter stating whether or not locations of
+coordinates are provided in absolute data coordinates.
+If set to FALSE, the locations of the x and y coordinates
+should range between 0 and 1.}
+
+\item{xlim, ylim}{vectors of length = 2, containing the limits of the data.
+These have to be provided if absolute is set to FALSE.}
 
 \item{fill}{color of fish shape}
+
+\item{alpha}{transparancy of fish shape (should range between 0 and 1)}
 }
 \description{
 Adds a fish silhouette to your plot
@@ -44,7 +58,8 @@ ggplot(diamonds)+
   add_fishape(family = "Acanthuridae",
               option = "Naso_unicornis",
               xmin = 1, xmax = 3, ymin = 15000, ymax = 20000,
-              fill = fish(option = "Naso_lituratus", n = 4)[2]) +
+              fill = fish(option = "Naso_lituratus", n = 4)[2],
+              alpha = 0.8) +
   theme_bw()
 
 }
