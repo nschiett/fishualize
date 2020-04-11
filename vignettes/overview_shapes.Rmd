@@ -21,12 +21,12 @@ library(ggplot2)
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 s <- fishualize::fishapes()
-invisible(lapply(1:nrow(s), function(i){
+lapply(1:nrow(s), function(i){
   sp <- s[i, "option"]
   fam <- s[i, "family"]
   ggplot() + add_fishape(family = fam, option = sp) +
     labs(title = paste(fam, ":", sp)) +
     theme_void()
-}))
+})
 
 ```

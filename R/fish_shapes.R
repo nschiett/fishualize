@@ -142,7 +142,10 @@ add_fishape <- function(family = "Pomacanthidae",
   g <- grid::rasterGrob(img, interpolate=TRUE)
 
   # reset color and alpha
-  oldcol <- names(sort(table(g$raster), decreasing=TRUE)[1])
+  oldcol <- names(sort(table(g$raster), decreasing=TRUE))
+  oldcol <- oldcol[!oldcol == "#FFFFFF00"]
+  oldcol <- oldcol[1]
+
   newcol <- scales::alpha(fill, alpha)
   g$raster[g$raster != oldcol] <- NA
   g$raster[g$raster == oldcol] <- newcol
