@@ -1,0 +1,32 @@
+---
+title: "Overview fish shapes"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{overview_shapes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(fishualize)
+library(ggplot2)
+```
+
+
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+s <- fishualize::fishapes()
+invisible(lapply(1:nrow(s), function(i){
+  sp <- s[i, "option"]
+  fam <- s[i, "family"]
+  ggplot() + add_fishape(family = fam, option = sp) +
+    labs(title = paste(fam, ":", sp)) +
+    theme_void()
+}))
+
+```

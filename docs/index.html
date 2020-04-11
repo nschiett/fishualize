@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Color Palettes Based on Fish Species • fishualize</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Color Palettes Based on Fish Species">
 <meta property="og:description" content="Implementation of color palettes based on fish species. ">
 <meta name="twitter:card" content="summary">
@@ -18,7 +19,7 @@
 <![endif]-->
 </head>
 <body>
-    <div class="container template-article">
+    <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -30,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fishualize</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -58,13 +59,16 @@
     <li>
       <a href="articles/overview_colors.html">Overview fishualize palettes</a>
     </li>
+    <li>
+      <a href="articles/overview_shapes.html">Overview fish shapes</a>
+    </li>
   </ul>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/nschiett/fishualize">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -77,14 +81,16 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
-  <div class="col-md-9 contents">
-    
+  <div class="contents col-md-9">
 
-    
-    
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-color-scales">The color scales</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
 <!-- badges: start -->
-
 <p><img src="reference/figures/fishualize_logo.png" width="120" alt="fishflux logo"></p>
 <div id="introduction" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
@@ -93,12 +99,12 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"fishualize"</span>)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(fishualize)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"fishualize"</span>)</a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fishualize)</a></code></pre></div>
 <p>or for the latest development version:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(devtools)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/remote-reexports">install_github</a></span>(<span class="st">"nschiett/fishualize"</span>, <span class="dt">force =</span> <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(fishualize)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(devtools)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"nschiett/fishualize"</span>, <span class="dt">force =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(fishualize)</a></code></pre></div>
 </div>
 </div>
 <div id="the-color-scales" class="section level1">
@@ -108,9 +114,9 @@
 A visual overview of the color scales can be found <a href="https://nschiett.github.io/fishualize/articles/overview_colors.html">here</a>.</p>
 <p>To visualize a fish color palette, you can run <code><a href="reference/fishualize.html">fishualize()</a></code> and specify your choice.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="reference/fishualize.html">fishualize</a></span>()</a></code></pre></div>
-<p><img src="index_files/figure-html/tldr_vis-1.png" width="672"></p>
+<p><img src="README_files/figure-markdown_github/tldr_vis-1.png" width="672"></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="reference/fishualize.html">fishualize</a></span>(<span class="dt">n =</span> <span class="dv">8</span>, <span class="dt">option =</span> <span class="st">"Hypsypops_rubicundus"</span>, <span class="dt">end =</span> <span class="fl">0.9</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/tldr_vis-2.png" width="672"></p>
+<p><img src="README_files/figure-markdown_github/tldr_vis-2.png" width="672"></p>
 </div>
 <div id="usage" class="section level1">
 <h1 class="hasAnchor">
@@ -118,113 +124,151 @@ A visual overview of the color scales can be found <a href="https://nschiett.git
 <p>The <code><a href="reference/fish.html">fish()</a></code> function produces the fish color scale based on your favorite species, which can be specified using ‘option’ = “Your_favorite” or fish_palettes()[] with the number of your species specified.</p>
 <p>For base R plots, use the <code><a href="reference/fish.html">fish()</a></code> function to generate a palette:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">pal &lt;-<span class="st"> </span><span class="kw"><a href="reference/fish.html">fish</a></span>(<span class="dv">256</span>, <span class="dt">option =</span> <span class="st">"Trimma_lantana"</span>)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/image">image</a></span>(volcano, <span class="dt">col =</span> pal)</a></code></pre></div>
-<p><img src="index_files/figure-html/tldr_base-1.png" width="672"></p>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(volcano, <span class="dt">col =</span> pal)</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/tldr_base-1.png" width="672"></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">pal &lt;-<span class="st"> </span><span class="kw"><a href="reference/fish.html">fish</a></span>(<span class="dv">10</span>, <span class="dt">option =</span> <span class="st">"Ostracion_cubicus"</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/image">image</a></span>(volcano, <span class="dt">col =</span> pal)</a></code></pre></div>
-<p><img src="index_files/figure-html/tldr_base-2.png" width="672"></p>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(volcano, <span class="dt">col =</span> pal)</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/tldr_base-2.png" width="672"></p>
 <div id="ggplot2" class="section level2">
 <h2 class="hasAnchor">
 <a href="#ggplot2" class="anchor"></a>ggplot2</h2>
 <p>The package also contains color scale functions for <strong>ggplot2</strong> plots: <code><a href="reference/scale_fish.html">scale_color_fish()</a></code> and <code><a href="reference/scale_fish.html">scale_fill_fish()</a></code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(rfishbase)</a>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rfishbase)</a>
 <a class="sourceLine" id="cb7-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># load data for plotting </span></a>
 <a class="sourceLine" id="cb7-5" data-line-number="5"><span class="co"># 1. Create list of species names currently featured in fishualize</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">spp &lt;-<span class="st"> </span>fishualize<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/fishualize/topics/fish_palettes">fish_palettes</a></span>()</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">spp &lt;-<span class="st"> </span>fishualize<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/fishualize/man/fish_palettes.html">fish_palettes</a></span>()</a>
 <a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co"># 2. Get data on the included species from FishBase using the rfishbase package</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">dt &lt;-<span class="st"> </span>rfishbase<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rfishbase/topics/species">species</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">"_"</span>,<span class="st">" "</span>, spp))</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">dt<span class="op">$</span>Importance =<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">factor</a></span>(dt<span class="op">$</span>Importance, <span class="dt">levels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"highly commercial"</span>, <span class="st">"commercial"</span>, <span class="st">"minor commercial"</span>, <span class="st">"subsistence fisheries"</span>, <span class="st">"of no interest"</span>))</a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co"># plot bars with discrete colors using color scheme provided by Scarus quoyi</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(dt[<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/NA">is.na</a></span>(dt<span class="op">$</span>Importance),]) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Importance, <span class="dt">fill =</span> Importance)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish_d</a></span>(<span class="dt">option =</span> <span class="st">"Scarus_quoyi"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.text.x=</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>() )</a></code></pre></div>
-<p><img src="index_files/figure-html/tldr_ggplot-1.png" width="672"></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># plot points with continuous colors provided by Hypsypops rubicundus</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(dt) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Length, <span class="dt">y =</span> Vulnerability, <span class="dt">color =</span> Vulnerability), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_color_fish</a></span>(<span class="dt">option =</span> <span class="st">"Hypsypops_rubicundus"</span>, <span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
-<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
-<p><img src="index_files/figure-html/tldr_ggplot-2.png" width="672"></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># get ecological information from FishBase</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">data &lt;-<span class="st"> </span>rfishbase<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rfishbase/topics/ecology">ecology</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">"_"</span>,<span class="st">" "</span>, spp), <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"SpecCode"</span>,<span class="st">"FeedingType"</span>, <span class="st">"DietTroph"</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>( rfishbase<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rfishbase/topics/species">species</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="st">"_"</span>,<span class="st">" "</span>, spp)))</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="co"># plot boxplots of length across feeding groups using discrete colors provided by Cirrilabrus solorensis</span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(data[<span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/NA">is.na</a></span>(data<span class="op">$</span>FeedingType),]) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> FeedingType, <span class="dt">y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/Log">log</a></span>(Length), <span class="dt">fill =</span> FeedingType )) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish_d</a></span>(<span class="dt">option =</span> <span class="st">"Cirrhilabrus_solorensis"</span>, <span class="dt">labels =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"invertivore"</span>, <span class="st">"herbivore"</span>, <span class="st">"carnivore"</span>, <span class="st">"planktivore"</span>, <span class="st">"omnivore"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.text.x=</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>() )</a></code></pre></div>
-<p><img src="index_files/figure-html/tldr_ggplot-3.png" width="672"></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># examine relationships between size and trophic level with vulnerability as a continuous color scheme provided by Lepomis megalotis</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(data) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Length, <span class="dt">y =</span> DietTroph, <span class="dt">color =</span> Vulnerability), <span class="dt">size =</span> <span class="dv">6</span>, <span class="dt">alpha =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_color_fish</a></span>(<span class="dt">option =</span> <span class="st">"Lepomis_megalotis"</span>, <span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
-<pre><code>## Warning: Removed 50 rows containing missing values (geom_point).</code></pre>
-<p><img src="index_files/figure-html/tldr_ggplot-4.png" width="672"></p>
+<a class="sourceLine" id="cb7-8" data-line-number="8">dt &lt;-<span class="st"> </span>rfishbase<span class="op">::</span><span class="kw"><a href="https://docs.ropensci.org/rfishbase/reference/species.html">species</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"_"</span>,<span class="st">" "</span>, spp))</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">## Warning: `data_frame()` is deprecated as of tibble 1.1.0.</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">## Please use `tibble()` instead.</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">## This warning is displayed once every 8 hours.</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">## Call `lifecycle::last_warnings()` to see where this warning was generated.</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">dt<span class="op">$</span>Importance =<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/factor.html">factor</a></span>(dt<span class="op">$</span>Importance, <span class="dt">levels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"highly commercial"</span>, <span class="st">"commercial"</span>, <span class="st">"minor commercial"</span>, <span class="st">"subsistence fisheries"</span>, <span class="st">"of no interest"</span>))</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># plot bars with discrete colors using color scheme provided by Scarus quoyi</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(dt[<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(dt<span class="op">$</span>Importance),]) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Importance, <span class="dt">fill =</span> Importance)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish_d</a></span>(<span class="dt">option =</span> <span class="st">"Scarus_quoyi"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.text.x=</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>() )</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/tldr_ggplot-1.png" width="672"></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># plot points with continuous colors provided by Hypsypops rubicundus</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(dt) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Length, <span class="dt">y =</span> Vulnerability, <span class="dt">color =</span> Vulnerability), <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_color_fish</a></span>(<span class="dt">option =</span> <span class="st">"Hypsypops_rubicundus"</span>, <span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">## Warning: Removed 2 rows containing missing values (geom_point).</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/tldr_ggplot-2.png" width="672"></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># get ecological information from FishBase</span></a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">data &lt;-<span class="st"> </span>rfishbase<span class="op">::</span><span class="kw"><a href="https://docs.ropensci.org/rfishbase/reference/ecology.html">ecology</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"_"</span>,<span class="st">" "</span>, spp), <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"SpecCode"</span>,<span class="st">"FeedingType"</span>, <span class="st">"DietTroph"</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>( rfishbase<span class="op">::</span><span class="kw"><a href="https://docs.ropensci.org/rfishbase/reference/species.html">species</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="st">"_"</span>,<span class="st">" "</span>, spp)))</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="co"># plot boxplots of length across feeding groups using discrete colors provided by Cirrilabrus solorensis</span></a>
+<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(data[<span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(data<span class="op">$</span>FeedingType),]) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> FeedingType, <span class="dt">y =</span> <span class="kw"><a href="https://rdrr.io/r/base/Log.html">log</a></span>(Length), <span class="dt">fill =</span> FeedingType )) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish_d</a></span>(<span class="dt">option =</span> <span class="st">"Cirrhilabrus_solorensis"</span>, <span class="dt">labels =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"invertivore"</span>, <span class="st">"herbivore"</span>, <span class="st">"carnivore"</span>, <span class="st">"planktivore"</span>, <span class="st">"omnivore"</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">axis.text.x=</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>() )</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/tldr_ggplot-3.png" width="672"></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="co"># examine relationships between size and trophic level with vulnerability as a continuous color scheme provided by Lepomis megalotis</span></a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(data) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">x =</span> Length, <span class="dt">y =</span> DietTroph, <span class="dt">color =</span> Vulnerability), <span class="dt">size =</span> <span class="dv">6</span>, <span class="dt">alpha =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_color_fish</a></span>(<span class="dt">option =</span> <span class="st">"Lepomis_megalotis"</span>, <span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb13-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">## Warning: Removed 60 rows containing missing values (geom_point).</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/tldr_ggplot-4.png" width="672"></p>
 <p>Colors can also be used with maps. Here are several examples of discrete and continuous color schemes on a world-map.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="co">#get dataset of the world's countries</span></a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">world &lt;-<span class="st"> </span>rnaturalearth<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/rnaturalearth/topics/ne_countries">ne_countries</a></span>(<span class="dt">scale =</span> <span class="st">"medium"</span>, <span class="dt">returnclass =</span> <span class="st">"sf"</span>)</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb13-6" data-line-number="6"><span class="co">#plot worldmap with each country's estimated population as a continuous colors scale based on the reverse colors of Whitley's Boxfish Ostracion whitleyi</span></a>
-<a class="sourceLine" id="cb13-7" data-line-number="7"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> pop_est)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Ostracion_whitleyi"</span>, <span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb13-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-1.png" width="672"></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="co">#plot worldmap with each country's estimated gdp based on the colors of the Sailfin Tang Zebrasoma velifer</span></a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> gdp_md_est)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Zebrasoma_velifer"</span>, <span class="dt">trans =</span> <span class="st">"sqrt"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-2.png" width="672"></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co">#same example as above but starting at a lighter point of the color scale</span></a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> gdp_md_est)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Zebrasoma_velifer"</span>, <span class="dt">trans =</span> <span class="st">"sqrt"</span>, <span class="dt">begin =</span> <span class="fl">0.3</span>, <span class="dt">end =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()<span class="op">+</span></a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-3.png" width="672"></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co">#plot worldmap again, this time with countries colored by their respective regional affiliation using the colors of the Clown coris *Coris gaimard* and 'discrete = TRUE'</span></a>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co">#get dataset of the world's countries</span></a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">world &lt;-<span class="st"> </span>rnaturalearth<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/rnaturalearth/man/ne_countries.html">ne_countries</a></span>(<span class="dt">scale =</span> <span class="st">"medium"</span>, <span class="dt">returnclass =</span> <span class="st">"sf"</span>)</a>
+<a class="sourceLine" id="cb15-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb15-6" data-line-number="6"><span class="co">#plot worldmap with each country's estimated population as a continuous colors scale based on the reverse colors of Whitley's Boxfish Ostracion whitleyi</span></a>
+<a class="sourceLine" id="cb15-7" data-line-number="7"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> pop_est)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Ostracion_whitleyi"</span>, <span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-10" data-line-number="10"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/ggplot2-1.png" width="672"></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co">#plot worldmap with each country's estimated gdp based on the colors of the Sailfin Tang Zebrasoma velifer</span></a>
 <a class="sourceLine" id="cb16-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> region_wb)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Coris_gaimard"</span>, <span class="dt">discrete =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> gdp_md_est)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Zebrasoma_velifer"</span>, <span class="dt">trans =</span> <span class="st">"sqrt"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb16-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()<span class="op">+</span></a>
 <a class="sourceLine" id="cb16-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-4.png" width="672"></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1">##same map with colors reversed</a>
+<p><img src="README_files/figure-markdown_github/ggplot2-2.png" width="672"></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">#same example as above but starting at a lighter point of the color scale</span></a>
 <a class="sourceLine" id="cb17-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
-<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> region_wb)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Coris_gaimard"</span>, <span class="dt">discrete =</span> <span class="ot">TRUE</span>, <span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> gdp_md_est)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb17-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Zebrasoma_velifer"</span>, <span class="dt">trans =</span> <span class="st">"sqrt"</span>, <span class="dt">begin =</span> <span class="fl">0.3</span>, <span class="dt">end =</span> <span class="dv">1</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb17-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()<span class="op">+</span></a>
 <a class="sourceLine" id="cb17-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-5.png" width="672"></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">#another map with countries colored by economic status using the colors of the Mandarinfish *Synchiropus splendidus*</span></a>
+<p><img src="README_files/figure-markdown_github/ggplot2-3.png" width="672"></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">#plot worldmap again, this time with countries colored by their respective regional affiliation using the colors of the Clown coris *Coris gaimard* and 'discrete = TRUE'</span></a>
 <a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> income_grp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Synchiropus_splendidus"</span>, <span class="dt">discrete =</span> T, <span class="dt">alpha =</span> <span class="fl">0.8</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> region_wb)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Coris_gaimard"</span>, <span class="dt">discrete =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb18-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()<span class="op">+</span></a>
 <a class="sourceLine" id="cb18-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-6.png" width="672"></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">#same map as above but with a narrower color palette in discrete values</span></a>
+<p><img src="README_files/figure-markdown_github/ggplot2-4.png" width="672"></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1">##same map with colors reversed</a>
 <a class="sourceLine" id="cb19-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> income_grp)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Synchiropus_splendidus"</span>, <span class="dt">discrete =</span> T, <span class="dt">alpha =</span> <span class="fl">0.8</span>, <span class="dt">begin =</span> <span class="fl">0.3</span>, <span class="dt">end =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb19-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> region_wb)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Coris_gaimard"</span>, <span class="dt">discrete =</span> <span class="ot">TRUE</span>, <span class="dt">direction =</span> <span class="dv">-1</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb19-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()<span class="op">+</span></a>
 <a class="sourceLine" id="cb19-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
-<p><img src="index_files/figure-html/ggplot2-7.png" width="672"></p>
+<p><img src="README_files/figure-markdown_github/ggplot2-5.png" width="672"></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">#another map with countries colored by economic status using the colors of the Mandarinfish *Synchiropus splendidus*</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> income_grp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Synchiropus_splendidus"</span>, <span class="dt">discrete =</span> T, <span class="dt">alpha =</span> <span class="fl">0.8</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb20-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/ggplot2-6.png" width="672"></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co">#same map as above but with a narrower color palette in discrete values</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="dt">data =</span> world) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> income_grp)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish</a></span>(<span class="dt">option =</span> <span class="st">"Synchiropus_splendidus"</span>, <span class="dt">discrete =</span> T, <span class="dt">alpha =</span> <span class="fl">0.8</span>, <span class="dt">begin =</span> <span class="fl">0.3</span>, <span class="dt">end =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb21-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"top"</span>)</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/ggplot2-7.png" width="672"></p>
+</div>
+<div id="fish-shapes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#fish-shapes" class="anchor"></a>Fish shapes</h2>
+<p>fishualize 2.0 provides the possibility to add fish silhouettes to a ggplot object with the function <code><a href="reference/add_fishape.html">add_fishape()</a></code>. To get an overview of all available silhouettes, run <code><a href="reference/fishapes.html">fishapes()</a></code>.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Default shape</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="reference/add_fishape.html">add_fishape</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>()</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/shapes-1.png" width="672"></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Species should be specified with family and option</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="co"># The color and transparency of the shape can be chosen with fill and alpha</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co"># xmin, xmax, ymin, and ymax incicate the coordinates in which the shape should be positioned.</span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4"> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(diamonds)<span class="op">+</span></a>
+<a class="sourceLine" id="cb23-5" data-line-number="5"><span class="st">   </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(cut, <span class="dt">fill =</span> cut)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-6" data-line-number="6"><span class="st">   </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish_d</a></span>(<span class="dt">option =</span> <span class="st">"Naso_lituratus"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-7" data-line-number="7"><span class="st">   </span><span class="kw"><a href="reference/add_fishape.html">add_fishape</a></span>(<span class="dt">family =</span> <span class="st">"Acanthuridae"</span>,</a>
+<a class="sourceLine" id="cb23-8" data-line-number="8">               <span class="dt">option =</span> <span class="st">"Naso_unicornis"</span>,</a>
+<a class="sourceLine" id="cb23-9" data-line-number="9">               <span class="dt">xmin =</span> <span class="dv">1</span>, <span class="dt">xmax =</span> <span class="dv">3</span>, <span class="dt">ymin =</span> <span class="dv">15000</span>, <span class="dt">ymax =</span> <span class="dv">20000</span>,</a>
+<a class="sourceLine" id="cb23-10" data-line-number="10">               <span class="dt">fill =</span> <span class="kw"><a href="reference/fish.html">fish</a></span>(<span class="dt">option =</span> <span class="st">"Naso_lituratus"</span>, <span class="dt">n =</span> <span class="dv">4</span>)[<span class="dv">2</span>],</a>
+<a class="sourceLine" id="cb23-11" data-line-number="11">               <span class="dt">alpha =</span> <span class="fl">0.8</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-12" data-line-number="12"><span class="st">   </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/shapes-2.png" width="672"></p>
+<p>Instead of absolute coordinates, another option is to specify the coordinates according to a relative scale (between 0 and 1). (with absolute = FALSE) In this case parameters xlim and ylim should indicate the limits of x and y variables. This is particularly useful if one wants to keep the position of fish shapes identical across graphs with varying scales.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(diamonds)<span class="op">+</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="st">   </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(cut, <span class="dt">fill =</span> cut)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="st">   </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish_d</a></span>(<span class="dt">option =</span> <span class="st">"Naso_lituratus"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="st">   </span><span class="kw"><a href="reference/add_fishape.html">add_fishape</a></span>(<span class="dt">family =</span> <span class="st">"Acanthuridae"</span>,</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5">               <span class="dt">option =</span> <span class="st">"Naso_unicornis"</span>,</a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">               <span class="dt">xmin =</span> <span class="fl">0.3</span>, <span class="dt">xmax =</span> <span class="fl">0.7</span>, <span class="dt">ymin =</span> <span class="fl">0.8</span>, <span class="dt">ymax =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">               <span class="dt">absolute =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb24-8" data-line-number="8">               <span class="dt">xlim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.5</span>, <span class="fl">5.5</span>), <span class="dt">ylim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="dv">21000</span>) ,</a>
+<a class="sourceLine" id="cb24-9" data-line-number="9">               <span class="dt">fill =</span> <span class="kw"><a href="reference/fish.html">fish</a></span>(<span class="dt">option =</span> <span class="st">"Naso_lituratus"</span>, <span class="dt">n =</span> <span class="dv">5</span>)[<span class="dv">3</span>],</a>
+<a class="sourceLine" id="cb24-10" data-line-number="10">               <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-11" data-line-number="11"><span class="st">   </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
+<p><img src="README_files/figure-markdown_github/shapes%20relative-1.png" width="672"></p>
 </div>
 <div id="contribute" class="section level2">
 <h2 class="hasAnchor">
@@ -237,12 +281,12 @@ A visual overview of the color scales can be found <a href="https://nschiett.git
 <p>To cite package <code>fishualize</code> in publications use:</p>
 <p>Nina Schiettekatte, Simon Brandl and Jordan Casey (2019). fishualize: Color Palettes Based on Fish Species. R package version 0.1.0. <a href="https://CRAN.R-project.org/package=fishualize" class="uri">https://CRAN.R-project.org/package=fishualize</a></p>
 <p>A BibTeX entry for LaTeX users is</p>
-<p><span class="citation">@Manual</span>{, title = {fishualize: Color Palettes Based on Fish Species}, author = {Nina Schiettekatte and Simon Brandl and Jordan Casey}, year = {2019}, note = {R package version 0.1.0}, url = {<a href="https://CRAN.R-project.org/package=fishualize" class="uri">https://CRAN.R-project.org/package=fishualize</a>}, }</p>
+<p>@Manual{, title = {fishualize: Color Palettes Based on Fish Species}, author = {Nina Schiettekatte and Simon Brandl and Jordan Casey}, year = {2019}, note = {R package version 0.1.0}, url = {<a href="https://CRAN.R-project.org/package=fishualize" class="uri">https://CRAN.R-project.org/package=fishualize</a>}, }</p>
 </div>
-<div id="acknowledgements" class="section level2">
+<div id="contributions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#acknowledgements" class="anchor"></a>Acknowledgements</h2>
-<p>Thanks to everyone contributing to the color palettes: Jindra Lacko, Andrew Steinkruger, Adam Smith.</p>
+<a href="#contributions" class="anchor"></a>Contributions</h2>
+<p>JMC, SJB, and NMDS created most color palettes, SJB drew all fish silhouettes, freely available <a href="https://github.com/simonjbrandl/fishape/tree/master/shapes"><strong>here</strong></a>. NMDS wrote the functions. SJB, JMC, and NMDS wrote the documentation. A big thanks to everyone submitting additional color palettes on GitHub: Jindra Lacko, Andrew Steinkruger, Adam Smit, pomboal, anhsmith, Kent Sorgon, Jean-Pierre Rossi, jdittrich</p>
 </div>
 <div id="credits" class="section level2">
 <h2 class="hasAnchor">
@@ -250,6 +294,7 @@ A visual overview of the color scales can be found <a href="https://nschiett.git
 <p>Credits for the initial structure of the functions for this package go to the <code>harrypotter</code> package made by Alejandro Jiménez: <a href="https://github.com/aljrico/harrypotter" class="uri">https://github.com/aljrico/harrypotter</a></p>
 </div>
 </div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -273,14 +318,13 @@ A visual overview of the color scales can be found <a href="https://nschiett.git
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Nina Schiettekatte <br><small class="roles"> Maintainer, author </small>  </li>
-<li>Simon Brandl <br><small class="roles"> Author </small>  </li>
-<li>Jordan Casey <br><small class="roles"> Author </small>  </li>
+<li>Nina M. D. Schiettekatte <br><small class="roles"> Maintainer, author </small>  </li>
+<li>Simon J. Brandl <br><small class="roles"> Author </small>  </li>
+<li>Jordan M. Casey <br><small class="roles"> Author </small>  </li>
 </ul>
 </div>
 
-
-      <div class="dev-status">
+  <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://travis-ci.org/nschiett/fishualize"><img src="https://api.travis-ci.org/nschiett/fishualize.png?branch=master" alt="Build Status"></a></li>
@@ -289,21 +333,22 @@ A visual overview of the color scales can be found <a href="https://nschiett.git
 </ul>
 </div>
 </div>
-
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Nina Schiettekatte, Simon Brandl, Jordan Casey.</p>
+  <p>Developed by Nina M. D. Schiettekatte, Simon J. Brandl, Jordan M. Casey.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

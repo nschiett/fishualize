@@ -100,7 +100,14 @@ library(rfishbase)
 spp <- fishualize::fish_palettes()
 # 2. Get data on the included species from FishBase using the rfishbase package
 dt <- rfishbase::species(gsub("_"," ", spp))
+```
 
+    ## Warning: `data_frame()` is deprecated as of tibble 1.1.0.
+    ## Please use `tibble()` instead.
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_warnings()` to see where this warning was generated.
+
+``` r
 dt$Importance = factor(dt$Importance, levels = c("highly commercial", "commercial", "minor commercial", "subsistence fisheries", "of no interest"))
 
 # plot bars with discrete colors using color scheme provided by Scarus quoyi
@@ -121,7 +128,7 @@ ggplot(dt) +
   theme_bw()
 ```
 
-    ## Warning: Removed 1 rows containing missing values (geom_point).
+    ## Warning: Removed 2 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-2.png" width="672" />
 
@@ -148,7 +155,7 @@ ggplot(data) +
   theme_bw()
 ```
 
-    ## Warning: Removed 48 rows containing missing values (geom_point).
+    ## Warning: Removed 60 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-4.png" width="672" />
 
@@ -237,6 +244,61 @@ ggplot(data = world) +
 
 <img src="README_files/figure-markdown_github/ggplot2-7.png" width="672" />
 
+Fish shapes
+-----------
+
+fishualize 2.0 provides the possibility to add fish silhouettes to a
+ggplot object with the function `add_fishape()`. To get an overview of
+all available silhouettes, run `fishapes()`.
+
+``` r
+# Default shape
+ggplot() + add_fishape() +
+  theme_void()
+```
+
+<img src="README_files/figure-markdown_github/shapes-1.png" width="672" />
+
+``` r
+# Species should be specified with family and option
+# The color and transparency of the shape can be chosen with fill and alpha
+# xmin, xmax, ymin, and ymax incicate the coordinates in which the shape should be positioned.
+ ggplot(diamonds)+
+   geom_bar(aes(cut, fill = cut)) +
+   scale_fill_fish_d(option = "Naso_lituratus") +
+   add_fishape(family = "Acanthuridae",
+               option = "Naso_unicornis",
+               xmin = 1, xmax = 3, ymin = 15000, ymax = 20000,
+               fill = fish(option = "Naso_lituratus", n = 4)[2],
+               alpha = 0.8) +
+   theme_bw()
+```
+
+<img src="README_files/figure-markdown_github/shapes-2.png" width="672" />
+
+Instead of absolute coordinates, another option is to specify the
+coordinates according to a relative scale (between 0 and 1). (with
+absolute = FALSE) In this case parameters xlim and ylim should indicate
+the limits of x and y variables. This is particularly useful if one
+wants to keep the position of fish shapes identical across graphs with
+varying scales.
+
+``` r
+ ggplot(diamonds)+
+   geom_bar(aes(cut, fill = cut)) +
+   scale_fill_fish_d(option = "Naso_lituratus") +
+   add_fishape(family = "Acanthuridae",
+               option = "Naso_unicornis",
+               xmin = 0.3, xmax = 0.7, ymin = 0.8, ymax = 1,
+               absolute = FALSE,
+               xlim = c(0.5, 5.5), ylim = c(0, 21000) ,
+               fill = fish(option = "Naso_lituratus", n = 5)[3],
+               alpha = 1) +
+   theme_bw()
+```
+
+<img src="README_files/figure-markdown_github/shapes relative-1.png" width="672" />
+
 Contribute
 ----------
 
@@ -260,11 +322,16 @@ author = {Nina Schiettekatte and Simon Brandl and Jordan Casey}, year =
 {2019}, note = {R package version 0.1.0}, url =
 {<https://CRAN.R-project.org/package=fishualize>}, }
 
-Acknowledgements
-----------------
+Contributions
+-------------
 
-Thanks to everyone contributing to the color palettes: Jindra Lacko,
-Andrew Steinkruger, Adam Smith.
+JMC, SJB, and NMDS created most color palettes, SJB drew all fish
+silhouettes, freely available
+[**here**](https://github.com/simonjbrandl/fishape/tree/master/shapes).
+NMDS wrote the functions. SJB, JMC, and NMDS wrote the documentation. A
+big thanks to everyone submitting additional color palettes on GitHub:
+Jindra Lacko, Andrew Steinkruger, Adam Smit, pomboal, anhsmith, Kent
+Sorgon, Jean-Pierre Rossi, jdittrich
 
 Credits
 -------

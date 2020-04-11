@@ -40,7 +40,7 @@ fishapes <- function(){
 
   df <- data.frame(text_sub = text_sub) %>%
     tidyr::separate(text_sub, into = c("family", "option"), sep = "_") %>%
-    dplyr::mutate(option = stringr::str_replace(.data$option, "[.]", "_"))
+    dplyr::mutate(option = stringr::str_replace(option, "[.]", "_"))
 
   return(df)
 }
@@ -74,14 +74,14 @@ fishapes <- function(){
 #'
 #' @importFrom ggplot2 annotation_custom
 #' @importFrom grid rasterGrob
-#' @importFrom imager load.image
+#' @importFrom png readPNG
 #' @importFrom scales alpha
 #'
 #'
 #' @examples
 #' library(ggplot2)
 #'
-#' ggplot() + add_fishape(fill = "#2f87e4")
+#' ggplot() + add_fishape(fill = fish(n = 5)[4])
 #'
 #' ggplot(diamonds)+
 #'   geom_bar(aes(cut, fill = cut)) +
@@ -93,10 +93,23 @@ fishapes <- function(){
 #'               alpha = 0.8) +
 #'   theme_bw()
 #'
+#' ## example with relative coordinates
+#' ggplot(diamonds)+
+#'   geom_bar(aes(cut, fill = cut)) +
+#'   scale_fill_fish_d(option = "Naso_lituratus") +
+#'   add_fishape(family = "Acanthuridae",
+#'               option = "Naso_unicornis",
+#'               xmin = 0, xmax = 0.3, ymin = 0.8, ymax = 1,
+#'               absolute = FALSE,
+#'               xlim = c(0.5, 5.5), ylim = c(0, 21000) ,
+#'               fill = fish(option = "Naso_lituratus", n = 5)[3],
+#'               alpha = 1) +
+#'   theme_bw()
+#'
 #' @export
 #'
-add_fishape <- function(family = "Acanthuridae",
-                        option = NA,
+add_fishape <- function(family = "Pomacanthidae",
+                        option = "Centropyge_loricula",
                         xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf,
                         absolute = TRUE,
                         xlim = NULL, ylim = NULL,
@@ -125,15 +138,14 @@ add_fishape <- function(family = "Acanthuridae",
     "https://raw.githubusercontent.com/simonjbrandl/fishape/master/shapes/",
     family, "_", gsub("_", ".", option), ".png")
 
-  img <- imager::load.image(url)
+  img <- wrap.url(url, png::readPNG)
   g <- grid::rasterGrob(img, interpolate=TRUE)
 
   # reset color and alpha
   oldcol <- names(sort(table(g$raster), decreasing=TRUE)[1])
-  newcol <- fill
-  newcol <- scales::alpha(newcol, alpha)
+  newcol <- scales::alpha(fill, alpha)
+  g$raster[g$raster != oldcol] <- NA
   g$raster[g$raster == oldcol] <- newcol
-  g$raster[g$raster == "#FFFFFF"] <- NA
 
   # possibility to rescale
   if (absolute == FALSE){
@@ -160,8 +172,33 @@ add_fishape <- function(family = "Acanthuridae",
 
 }
 
+###### function borrowed from r package imager #####
+wrap.url <- function(file,fun)
+{
+  is.url <- grepl("^(http|ftp)s?://", file)
+  if (is.url)
+  {
+    url <- file
+    ext <- stringr::str_extract_all(url,"\\.([A-Za-z0-9]+$)")[[1]]
+    if (length(ext) > 0) file <- tempfile(fileext=ext) else file <- tempfile()
+    downloader::download(url,file,mode="wb")
+    out <- fun(file)
+    unlink(file)
+    out
+  }
+  else
+  {
+    if (!utils::file_test("-f",file))
+    {
+      stop("File not found")
+    }
+    else
+    {
+      fun(file)
+    }
+  }
 
-
+}
 
 
 

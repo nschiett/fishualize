@@ -1,11 +1,13 @@
 Package: fishualize
 Type: Package
 Title: Color Palettes Based on Fish Species
-Version: 0.2.999
+Version: 0.2.0
 Authors@R: c(
-    person("Nina", "Schiettekatte", email = "nina.schiettekatte@gmail.com", role = c("cre", "aut")),
-    person("Simon", "Brandl", role = "aut"),
-    person("Jordan", "Casey",  role = "aut"))
+    person("Nina M. D.", "Schiettekatte", 
+    email = "nina.schiettekatte@gmail.com", 
+    role = c("cre", "aut")),
+    person("Simon J.", "Brandl", role = "aut"),
+    person("Jordan M.", "Casey",  role = "aut"))
 Maintainer: Nina Schiettekatte <nina.schiettekatte@gmail.com>
 Description: Implementation of color palettes based on fish species. 
 License: GPL-2
@@ -28,7 +30,8 @@ Imports:
     gridExtra,
     grid,
     png,
-    imager,
+    downloader,
+    utils,
     httr,
     magrittr,
     stringr,

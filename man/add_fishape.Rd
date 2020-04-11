@@ -5,8 +5,8 @@
 \title{fish silhouette in ggplot2}
 \usage{
 add_fishape(
-  family = "Acanthuridae",
-  option = NA,
+  family = "Pomacanthidae",
+  option = "Centropyge_loricula",
   xmin = -Inf,
   xmax = Inf,
   ymin = -Inf,
@@ -50,7 +50,7 @@ Adds a fish silhouette to your plot
 \examples{
 library(ggplot2)
 
-ggplot() + add_fishape(fill = "#2f87e4")
+ggplot() + add_fishape(fill = fish(n = 5)[4])
 
 ggplot(diamonds)+
   geom_bar(aes(cut, fill = cut)) +
@@ -60,6 +60,19 @@ ggplot(diamonds)+
               xmin = 1, xmax = 3, ymin = 15000, ymax = 20000,
               fill = fish(option = "Naso_lituratus", n = 4)[2],
               alpha = 0.8) +
+  theme_bw()
+
+## example with relative coordinates
+ggplot(diamonds)+
+  geom_bar(aes(cut, fill = cut)) +
+  scale_fill_fish_d(option = "Naso_lituratus") +
+  add_fishape(family = "Acanthuridae",
+              option = "Naso_unicornis",
+              xmin = 0, xmax = 0.3, ymin = 0.8, ymax = 1,
+              absolute = FALSE,
+              xlim = c(0.5, 5.5), ylim = c(0, 21000) ,
+              fill = fish(option = "Naso_lituratus", n = 5)[3],
+              alpha = 1) +
   theme_bw()
 
 }
