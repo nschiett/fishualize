@@ -53,21 +53,21 @@ fishapes <- function(){
 #'
 #' Adds a fish silhouette to your plot
 #'
-#' @param family A character string indicating the fish family to use.
-#' @param option A character string indicating the fish species to use.
-#' If NA the first avalable option within a family will be used
-#' @param xmin x location giving horizontal location of raster
-#' @param xmax x location giving horizontal location of raster
-#' @param ymin y location giving vertical location of raster
-#' @param ymax y location giving vertical location of raster
-#' @param absolute logical parameter stating whether or not locations of
-#' coordinates are provided in absolute data coordinates.
-#' If set to FALSE, the locations of the x and y coordinates
-#' should range between 0 and 1.
-#' @param xlim,ylim vectors of length = 2, containing the limits of the data.
-#' These have to be provided if absolute is set to FALSE.
+#' @param family character string indicating the fish family.
+#' @param option character string indicating the fish species.
+#' If NA, the first available option within a family will be selected
+#' @param xmin x location giving minimum horizontal location of silhouette
+#' @param xmax x location giving maximum horizontal location of silhouette
+#' @param ymin y location giving minimum vertical location of silhouette
+#' @param ymax y location giving maximum vertical location of silhouette
+#' @param scaled logical parameter. If TRUE, location parameters
+#' (xmin, xmax, ymin, ymax) should range between 0 and 1.
+#' If FALSE, location parameters should be provided according to the values on
+#' the plot axes.
+#' @param xlim,ylim vectors of length = 2, contains the data limits
+#' and must be provided if scaled is TRUE.
 #' @param fill color of fish shape
-#' @param alpha transparancy of fish shape (should range between 0 and 1)
+#' @param alpha transparency of fish shape (value between 0 and 1)
 #'
 #' @rdname add_fishape
 #'
@@ -89,7 +89,7 @@ fishapes <- function(){
 #'   add_fishape(family = "Acanthuridae",
 #'               option = "Naso_unicornis",
 #'               xmin = 1, xmax = 3, ymin = 15000, ymax = 20000,
-#'               fill = fish(option = "Naso_lituratus", n = 4)[2],
+#'               fill = fish(option = "Naso_lituratus", n = 5)[3],
 #'               alpha = 0.8) +
 #'   theme_bw()
 #'
@@ -100,7 +100,7 @@ fishapes <- function(){
 #'   add_fishape(family = "Acanthuridae",
 #'               option = "Naso_unicornis",
 #'               xmin = 0, xmax = 0.3, ymin = 0.8, ymax = 1,
-#'               absolute = FALSE,
+#'               scaled = TRUE,
 #'               xlim = c(0.5, 5.5), ylim = c(0, 21000) ,
 #'               fill = fish(option = "Naso_lituratus", n = 5)[3],
 #'               alpha = 1) +
@@ -111,7 +111,7 @@ fishapes <- function(){
 add_fishape <- function(family = "Pomacanthidae",
                         option = "Centropyge_loricula",
                         xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = Inf,
-                        absolute = TRUE,
+                        scaled = FALSE,
                         xlim = NULL, ylim = NULL,
                         fill = "#000000",
                         alpha = 1){
@@ -151,12 +151,12 @@ add_fishape <- function(family = "Pomacanthidae",
   g$raster[g$raster == oldcol] <- newcol
 
   # possibility to rescale
-  if (absolute == FALSE){
+  if (scaled == TRUE){
     ## first check if all info is there
     if(xmin < 0 | xmax > 1 | ymin < 0 | ymax > 1 |
        is.null(xlim) | is.null(ylim)){
-      stop("If absolute = FALSE,
-           min and max of x and y gave to lie between 0 and 1 and
+      stop("If scaled = TRUE,
+           min and max of x and y have to lie between 0 and 1 and
            xlim and ylim have to be defined")
     }
     ## rescale to absolute
