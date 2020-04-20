@@ -8,7 +8,7 @@ Authors@R: c(
     role = c("cre", "aut")),
     person("Simon J.", "Brandl", role = "aut"),
     person("Jordan M.", "Casey",  role = "aut"))
-Maintainer: Nina Schiettekatte <nina.schiettekatte@gmail.com>
+Maintainer: Nina M. D. Schiettekatte <nina.schiettekatte@gmail.com>
 Description: Implementation of color palettes based on fish species. 
 License: GPL-2
 Encoding: UTF-8
