@@ -4,11 +4,13 @@
 \name{fishcolors}
 \alias{fishcolors}
 \title{Original fish color database}
-\format{A data frame containing all the colours used in the palette:
+\format{
+A data frame containing all the colours used in the palette:
 \itemize{
   \item option: It is intended to be a general option for choosing the specific colour palette.
   \item hex: hex color code
-}}
+}
+}
 \usage{
 fishcolors
 }

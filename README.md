@@ -247,9 +247,9 @@ ggplot(data = world) +
 Fish shapes
 -----------
 
-fishualize 2.0 provides the possibility to add fish silhouettes to a
-ggplot object with the function `add_fishape()`. To get an overview of
-all available silhouettes, run `fishapes()`.
+fishualize 2.0 enables you to add fish silhouettes to a ggplot object
+with the function `add_fishape()`. To get an overview of all available
+silhouettes, run `fishapes()`.
 
 ``` r
 # Default shape
@@ -260,9 +260,9 @@ ggplot() + add_fishape() +
 <img src="README_files/figure-markdown_github/shapes-1.png" width="672" />
 
 ``` r
-# Species should be specified with family and option
-# The color and transparency of the shape can be chosen with fill and alpha
-# xmin, xmax, ymin, and ymax incicate the coordinates in which the shape should be positioned.
+# Species are specified with family and option
+# The color and transparency of the shape is chosen with fill and alpha
+# xmin, xmax, ymin, and ymax indicate the position of the fish silhouette
  ggplot(diamonds)+
    geom_bar(aes(cut, fill = cut)) +
    scale_fill_fish_d(option = "Naso_lituratus") +
@@ -276,12 +276,11 @@ ggplot() + add_fishape() +
 
 <img src="README_files/figure-markdown_github/shapes-2.png" width="672" />
 
-Instead of absolute coordinates, another option is to specify the
-coordinates according to a relative scale (between 0 and 1). (with
-absolute = FALSE) In this case parameters xlim and ylim should indicate
-the limits of x and y variables. This is particularly useful if one
-wants to keep the position of fish shapes identical across graphs with
-varying scales.
+Alternatively, you can specify the coordinates according to a relative
+scale (between 0 and 1; with scaled = TRUE). In this case, parameters
+xlim and ylim indicate the x and y limits of x and y. This is useful to
+keep the fish silhouette positioned identically across graphs with
+different scales.
 
 ``` r
  ggplot(diamonds)+
@@ -290,7 +289,7 @@ varying scales.
    add_fishape(family = "Acanthuridae",
                option = "Naso_unicornis",
                xmin = 0.3, xmax = 0.7, ymin = 0.8, ymax = 1,
-               absolute = FALSE,
+               scaled = TRUE,
                xlim = c(0.5, 5.5), ylim = c(0, 21000) ,
                fill = fish(option = "Naso_lituratus", n = 5)[3],
                alpha = 1) +
@@ -325,17 +324,16 @@ author = {Nina Schiettekatte and Simon Brandl and Jordan Casey}, year =
 Contributions
 -------------
 
-JMC, SJB, and NMDS created most color palettes, SJB drew all fish
-silhouettes, freely available
+JMC, SJB, and NMDS created the color palettes, SJB drew the fish
+silhouettes, which are freely available
 [**here**](https://github.com/simonjbrandl/fishape/tree/master/shapes).
 NMDS wrote the functions. SJB, JMC, and NMDS wrote the documentation. A
-big thanks to everyone submitting additional color palettes on GitHub:
-Jindra Lacko, Andrew Steinkruger, Adam Smit, pomboal, anhsmith, Kent
-Sorgon, Jean-Pierre Rossi, jdittrich
+big thanks to everyone that submitted additional color palettes via
+GitHub: Jindra Lacko, Andrew Steinkruger, Adam Smit, pomboal, anhsmith,
+Kent Sorgon, Jean-Pierre Rossi, jdittrich
 
 Credits
 -------
 
-Credits for the initial structure of the functions for this package go
-to the `harrypotter` package made by Alejandro Jiménez:
-<https://github.com/aljrico/harrypotter>
+The initial structure of this package was inspired by the `harrypotter`
+package by Alejandro Jiménez: <https://github.com/aljrico/harrypotter>

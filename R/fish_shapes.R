@@ -16,6 +16,7 @@
 #' @importFrom stringr str_replace
 #' @importFrom tidyr separate
 #' @importFrom dplyr mutate
+#' @importFrom rlang .data
 #'
 #'
 #' @examples
@@ -40,7 +41,7 @@ fishapes <- function(){
 
   df <- data.frame(text_sub = text_sub) %>%
     tidyr::separate(text_sub, into = c("family", "option"), sep = "_") %>%
-    dplyr::mutate(option = stringr::str_replace(option, "[.]", "_"))
+    dplyr::mutate(option = stringr::str_replace(.data$option, "[.]", "_"))
 
   return(df)
 }
