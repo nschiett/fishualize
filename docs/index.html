@@ -241,14 +241,14 @@ A visual overview of the color scales can be found <a href="https://nschiett.git
 <div id="fish-shapes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fish-shapes" class="anchor"></a>Fish shapes</h2>
-<p>fishualize 2.0 provides the possibility to add fish silhouettes to a ggplot object with the function <code><a href="reference/add_fishape.html">add_fishape()</a></code>. To get an overview of all available silhouettes, run <code><a href="reference/fishapes.html">fishapes()</a></code>.</p>
+<p>fishualize 2.0 enables you to add fish silhouettes to a ggplot object with the function <code><a href="reference/add_fishape.html">add_fishape()</a></code>. To get an overview of all available silhouettes, run <code><a href="reference/fishapes.html">fishapes()</a></code>.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Default shape</span></a>
 <a class="sourceLine" id="cb22-2" data-line-number="2"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="reference/add_fishape.html">add_fishape</a></span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb22-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_void</a></span>()</a></code></pre></div>
 <p><img src="README_files/figure-markdown_github/shapes-1.png" width="672"></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Species should be specified with family and option</span></a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="co"># The color and transparency of the shape can be chosen with fill and alpha</span></a>
-<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co"># xmin, xmax, ymin, and ymax incicate the coordinates in which the shape should be positioned.</span></a>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="co"># Species are specified with family and option</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="co"># The color and transparency of the shape is chosen with fill and alpha</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="co"># xmin, xmax, ymin, and ymax indicate the position of the fish silhouette</span></a>
 <a class="sourceLine" id="cb23-4" data-line-number="4"> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(diamonds)<span class="op">+</span></a>
 <a class="sourceLine" id="cb23-5" data-line-number="5"><span class="st">   </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(cut, <span class="dt">fill =</span> cut)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb23-6" data-line-number="6"><span class="st">   </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish_d</a></span>(<span class="dt">option =</span> <span class="st">"Naso_lituratus"</span>) <span class="op">+</span></a>
@@ -259,14 +259,14 @@ A visual overview of the color scales can be found <a href="https://nschiett.git
 <a class="sourceLine" id="cb23-11" data-line-number="11">               <span class="dt">alpha =</span> <span class="fl">0.8</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb23-12" data-line-number="12"><span class="st">   </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a></code></pre></div>
 <p><img src="README_files/figure-markdown_github/shapes-2.png" width="672"></p>
-<p>Instead of absolute coordinates, another option is to specify the coordinates according to a relative scale (between 0 and 1). (with absolute = FALSE) In this case parameters xlim and ylim should indicate the limits of x and y variables. This is particularly useful if one wants to keep the position of fish shapes identical across graphs with varying scales.</p>
+<p>Alternatively, you can specify the coordinates according to a relative scale (between 0 and 1; with scaled = TRUE). In this case, parameters xlim and ylim indicate the x and y limits of x and y. This is useful to keep the fish silhouette positioned identically across graphs with different scales.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(diamonds)<span class="op">+</span></a>
 <a class="sourceLine" id="cb24-2" data-line-number="2"><span class="st">   </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(cut, <span class="dt">fill =</span> cut)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb24-3" data-line-number="3"><span class="st">   </span><span class="kw"><a href="reference/scale_fish.html">scale_fill_fish_d</a></span>(<span class="dt">option =</span> <span class="st">"Naso_lituratus"</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb24-4" data-line-number="4"><span class="st">   </span><span class="kw"><a href="reference/add_fishape.html">add_fishape</a></span>(<span class="dt">family =</span> <span class="st">"Acanthuridae"</span>,</a>
 <a class="sourceLine" id="cb24-5" data-line-number="5">               <span class="dt">option =</span> <span class="st">"Naso_unicornis"</span>,</a>
 <a class="sourceLine" id="cb24-6" data-line-number="6">               <span class="dt">xmin =</span> <span class="fl">0.3</span>, <span class="dt">xmax =</span> <span class="fl">0.7</span>, <span class="dt">ymin =</span> <span class="fl">0.8</span>, <span class="dt">ymax =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb24-7" data-line-number="7">               <span class="dt">absolute =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb24-7" data-line-number="7">               <span class="dt">scaled =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb24-8" data-line-number="8">               <span class="dt">xlim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.5</span>, <span class="fl">5.5</span>), <span class="dt">ylim =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">0</span>, <span class="dv">21000</span>) ,</a>
 <a class="sourceLine" id="cb24-9" data-line-number="9">               <span class="dt">fill =</span> <span class="kw"><a href="reference/fish.html">fish</a></span>(<span class="dt">option =</span> <span class="st">"Naso_lituratus"</span>, <span class="dt">n =</span> <span class="dv">5</span>)[<span class="dv">3</span>],</a>
 <a class="sourceLine" id="cb24-10" data-line-number="10">               <span class="dt">alpha =</span> <span class="dv">1</span>) <span class="op">+</span></a>
@@ -289,12 +289,12 @@ A visual overview of the color scales can be found <a href="https://nschiett.git
 <div id="contributions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contributions" class="anchor"></a>Contributions</h2>
-<p>JMC, SJB, and NMDS created most color palettes, SJB drew all fish silhouettes, freely available <a href="https://github.com/simonjbrandl/fishape/tree/master/shapes"><strong>here</strong></a>. NMDS wrote the functions. SJB, JMC, and NMDS wrote the documentation. A big thanks to everyone submitting additional color palettes on GitHub: Jindra Lacko, Andrew Steinkruger, Adam Smit, pomboal, anhsmith, Kent Sorgon, Jean-Pierre Rossi, jdittrich</p>
+<p>JMC, SJB, and NMDS created the color palettes, SJB drew the fish silhouettes, which are freely available <a href="https://github.com/simonjbrandl/fishape/tree/master/shapes"><strong>here</strong></a>. NMDS wrote the functions. SJB, JMC, and NMDS wrote the documentation. A big thanks to everyone that submitted additional color palettes via GitHub: Jindra Lacko, Andrew Steinkruger, Adam Smit, pomboal, anhsmith, Kent Sorgon, Jean-Pierre Rossi, jdittrich</p>
 </div>
 <div id="credits" class="section level2">
 <h2 class="hasAnchor">
 <a href="#credits" class="anchor"></a>Credits</h2>
-<p>Credits for the initial structure of the functions for this package go to the <code>harrypotter</code> package made by Alejandro Jiménez: <a href="https://github.com/aljrico/harrypotter" class="uri">https://github.com/aljrico/harrypotter</a></p>
+<p>The initial structure of this package was inspired by the <code>harrypotter</code> package by Alejandro Jiménez: <a href="https://github.com/aljrico/harrypotter" class="uri">https://github.com/aljrico/harrypotter</a></p>
 </div>
 </div>
 
