@@ -37,6 +37,7 @@ Imports:
     stringr,
     dplyr,
     tidyr,
-    scales
+    scales,
+    rlang
 RoxygenNote: 7.1.0
 VignetteBuilder: knitr

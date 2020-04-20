@@ -11,3 +11,4 @@
 ^README.md$
 ^README_files$
 ^data/.~lock.fishcolors.csv#
+^cran-comments\.md$
