@@ -6,5 +6,5 @@
 
 * Added a function `add_fishape()`
 
-* Added a function `fishapes()` to get an overview of the avaliable fish silhouettes.
+* Added a function `fishapes()` to get an overview of the available fish silhouettes.
 There are 101 available fish shapes from 61 families. 
