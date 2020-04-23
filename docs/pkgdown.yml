@@ -1,8 +1,9 @@
 pandoc: 2.1.2
-pkgdown: 1.4.1
+pkgdown: 1.5.1
 pkgdown_sha: ~
 articles:
   contribute: contribute.html
   overview_colors: overview_colors.html
   overview_shapes: overview_shapes.html
+last_built: 2020-04-23T15:34Z
 
