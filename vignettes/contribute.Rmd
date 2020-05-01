@@ -15,8 +15,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-[fishualize](https://github.com/nschiett/fishualize) is a project that will be updated regularly. There are plenty more fish in the sea (and freshwater too, I guess), which are all waiting to be fishualized! Your favorite fish is currently not included in [fishualize](https://github.com/nschiett/fishualize), you say? Do not despair! You can make it happen and contribute to the wonderful community of nerds on #TeamFish! It’s a piece of cake and here’s how to do it:
+[fishualize](https://github.com/nschiett/fishualize) is a project that will be updated regularly. There are plenty more fish in the sea (and freshwater too, I guess), which are all waiting to be fishualized! Your favorite fish is currently not included in the [fishualize](https://github.com/nschiett/fishualize) palettes or shapes, you say? Do not despair! You can make it happen and contribute to the wonderful community of nerds on #TeamFish! It’s a piece of cake and here’s how to do it:
 
+# Color palettes
 ### 1) Browse the internet or your personal folders until you find a pretty picture of your favorite fish
 ### 2) Go to https://coolors.co/app or use your illustration software of choice (Adobe Illustrato, Inkscape, etc).
 ### 3) Press the camera symbol and either paste the link of a picture from the internet or upload one from your computer.
@@ -24,6 +25,20 @@ knitr::opts_chunk$set(
 ### 5) Copy the hex color codes.
 ### 6) Go to https://github.com/nschiett/fishualize/issues, start a new issue with the label "enhancement" and paste the 5 colors and the species name (only scientific names please, i.e. genus and species separated by an underscore: "Zebrasoma_velifer").
 ### 7) Awesome. Your work is done! We will add your fish color palette as soon as we can. 
+
+# Silhouettes
+
+Got silhouettes you want to contribute? Looking for a silhouette of your study species but can’t find it? Feel free to add to our collection of shapes, but be sure to follow these guidenlines:
+
+### 1) The shape MUST be a .png file with clear background.
+### 2) Only contribute silhouettes you have drawn yourself and for which you hold copyright.
+### 3) Ensure that the silhouette is black and 9cm in width for consistency. 
+### 4) Check that your file is smaller than 50 kb.
+### 5) Fish only! No mammals, birds, insects, or other products of your taxonomic imagination.
+### 6) Name the file as “Family_Genus.species.png”. No common names, no abbreviations, no Genus.spp, no spelling mistakes.
+### 7) Send your silhouette to simonjbrandl@gmail.com or directly clone and pull the “fishape” repo on GitHub (https://github.com/simonjbrandl/fishape), add your silhouettes to the folder “shapes,” and push everything back on GitHub. 
+
+Thanks for your contribution! By adding your silhouette, you agree to other fish-nerds using and reproducing your work freely.  
 
 # Frequently asked questions
 
