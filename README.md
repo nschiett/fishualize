@@ -128,7 +128,7 @@ ggplot(dt) +
   theme_bw()
 ```
 
-    ## Warning: Removed 2 rows containing missing values (geom_point).
+    ## Warning: Removed 12 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-2.png" width="672" />
 
@@ -155,7 +155,7 @@ ggplot(data) +
   theme_bw()
 ```
 
-    ## Warning: Removed 60 rows containing missing values (geom_point).
+    ## Warning: Removed 192 rows containing missing values (geom_point).
 
 <img src="README_files/figure-markdown_github/tldr_ggplot-4.png" width="672" />
 
@@ -330,7 +330,8 @@ silhouettes, which are freely available
 NMDS wrote the functions. SJB, JMC, and NMDS wrote the documentation. A
 big thanks to everyone that submitted additional color palettes via
 GitHub: Jindra Lacko, Andrew Steinkruger, Adam Smit, pomboal, anhsmith,
-Kent Sorgon, Jean-Pierre Rossi, jdittrich
+Kent Sorgon, Jean-Pierre Rossi, jdittrich, amedelin, Leonardo Donato
+Nunes, tesaucier, Thais Araújo, Áthila Bertoncini Andrade
 
 Credits
 -------

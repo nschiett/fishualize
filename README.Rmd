@@ -250,7 +250,7 @@ A BibTeX entry for LaTeX users is
 ## Contributions
 JMC, SJB, and NMDS created the color palettes, SJB drew the fish silhouettes, which are freely available [**here**](https://github.com/simonjbrandl/fishape/tree/master/shapes).
 NMDS wrote the functions. SJB, JMC, and NMDS wrote the documentation. 
-A big thanks to everyone that submitted additional color palettes via GitHub: Jindra Lacko, Andrew Steinkruger, Adam Smit, pomboal, anhsmith, Kent Sorgon, Jean-Pierre Rossi, jdittrich
+A big thanks to everyone that submitted additional color palettes via GitHub: Jindra Lacko, Andrew Steinkruger, Adam Smit, pomboal, anhsmith, Kent Sorgon, Jean-Pierre Rossi, jdittrich, amedelin, Leonardo Donato Nunes, tesaucier, Thais Araújo, Áthila Bertoncini Andrade
 
 ## Credits
 
