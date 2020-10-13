@@ -1,7 +1,7 @@
 Package: fishualize
 Type: Package
 Title: Color Palettes Based on Fish Species
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: c(
     person("Nina M. D.", "Schiettekatte", 
     email = "nina.schiettekatte@gmail.com", 
@@ -38,6 +38,7 @@ Imports:
     dplyr,
     tidyr,
     scales,
-    rlang
+    rlang,
+    curl 
 RoxygenNote: 7.1.0
 VignetteBuilder: knitr
