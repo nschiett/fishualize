@@ -16,7 +16,6 @@ LazyData: true
 Depends:
     R (>= 2.10)
 Suggests:
-    hexbin (>= 1.27.0),
     testthat,
     knitr,
     rmarkdown,

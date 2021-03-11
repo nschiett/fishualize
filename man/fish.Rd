@@ -54,13 +54,13 @@ This function creates a vector of \code{n} equally spaced colors along the
 }
 \examples{
 library(ggplot2)
-library(hexbin)
+library(fishualize)
 
 dat <- data.frame(x = rnorm(1e4), y = rnorm(1e4))
 ggplot(dat, aes(x = x, y = y)) +
-  geom_hex() +
-  coord_fixed() +
-  scale_fill_gradientn(colours = fish(128, option = 'Ostracion_cubicus'))
+  stat_density_2d(geom = "raster",
+  aes(fill = after_stat(density)), contour = FALSE) +
+  scale_fill_gradientn(colors = fish(128, option = 'Ostracion_cubicus'))
 
 pal <- fish(256, option = "Thalassoma_hardwicke", direction = -1)
 image(volcano, col = pal)
