@@ -7,26 +7,8 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
-library(fishualize)
-library(ggplot2)
-```
+See this [page](https://github.com/simonjbrandl/fishape/tree/master/shapes) for an overview of the available shapes.
 
 
 
 
-```{r, echo=FALSE, warning=FALSE, message=FALSE}
-s <- fishualize::fishapes()
-lapply(1:nrow(s), function(i){
-  sp <- s[i, "option"]
-  fam <- s[i, "family"]
-  ggplot() + add_fishape(family = fam, option = sp) +
-    labs(title = paste(fam, ":", sp)) +
-    theme_void()
-})
-
-```

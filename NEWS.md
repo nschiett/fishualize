@@ -8,3 +8,9 @@
 
 * Added a function `fishapes()` to get an overview of the available fish silhouettes.
 There are 101 available fish shapes from 61 families. 
+
+# fishualize 0.2.1
+
+* Fixed CRAN policy issue:
+'Packages which use Internet resources should fail gracefully with an informative message if the resource is not available or has changed (and not give a check warning nor error).'
+More color palettes.      

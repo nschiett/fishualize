@@ -1,3 +1,15 @@
+try_GET <- function(x, ...) {
+  tryCatch(
+    httr::GET(url = x, httr::timeout(10), ...),
+    error = function(e) conditionMessage(e),
+    warning = function(w) conditionMessage(w)
+  )
+}
+is_response <- function(x) {
+  class(x) == "response"
+}
+
+
 #' Available fish silhouettes
 #'
 #' This function returns a dataframe containing the all the available fish
@@ -10,6 +22,7 @@
 #' @importFrom httr stop_for_status
 #' @importFrom httr content
 #' @importFrom curl has_internet
+#' @importFrom httr message_for_status
 #' @importFrom magrittr "%>%"
 #' @importFrom stringr str_split
 #' @importFrom stringr str_subset
@@ -36,7 +49,20 @@ fishapes <- function(){
     return(invisible(NULL))
   }
 
-  req <- httr::GET("https://github.com/simonjbrandl/fishape/tree/master/shapes")
+  url <- "https://github.com/simonjbrandl/fishape/tree/master/shapes"
+
+  # Then try for timeout problems
+  resp <- try_GET(url)
+  if (!is_response(resp)) {
+    message(resp)
+    return(invisible(NULL))
+  }
+  # Then stop if status > 400
+  if (httr::http_error(resp)) {
+    httr::message_for_status(resp)
+    return(invisible(NULL))
+  }
+  req <- httr::GET(url)
 
   httr::stop_for_status(req)
   text <- httr::content(req, "text")
