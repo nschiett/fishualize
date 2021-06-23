@@ -14,3 +14,11 @@ There are 101 available fish shapes from 61 families.
 * Fixed CRAN policy issue:
 'Packages which use Internet resources should fail gracefully with an informative message if the resource is not available or has changed (and not give a check warning nor error).'
 More color palettes.      
+
+# fishualize 0.2.2
+
+* Fixed CRAN policy issue:
+'Packages which use Internet resources should fail gracefully with an informative message if the resource is not available or has changed (and not give a check warning nor error).'
+--> added an extra statement to test if object shapes is null due to bad internet connection   
+
+

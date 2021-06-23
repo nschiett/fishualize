@@ -1,7 +1,7 @@
 Package: fishualize
 Type: Package
 Title: Color Palettes Based on Fish Species
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: c(
     person("Nina M. D.", "Schiettekatte", 
     email = "nina.schiettekatte@gmail.com", 
