@@ -157,10 +157,6 @@ add_fishape <- function(family = "Pomacanthidae",
 
   shapes <- fishapes()
 
-  if (is.null(shapes)){
-    stop("No internet connection")
-  }
-
   if (is.na(option)){
     option <- shapes[shapes$family == family, "option"][1]
   }
