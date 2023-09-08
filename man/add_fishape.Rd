@@ -44,10 +44,14 @@ and must be provided if scaled is TRUE.}
 
 \item{alpha}{transparency of fish shape (value between 0 and 1)}
 }
+\value{
+Adds a fish silhouette grob to a ggplot object.
+}
 \description{
 Adds a fish silhouette to your plot
 }
 \examples{
+\dontrun{
 library(ggplot2)
 
 ggplot() + add_fishape(fill = fish(n = 5)[4])
@@ -74,5 +78,5 @@ ggplot(diamonds)+
               fill = fish(option = "Naso_lituratus", n = 5)[3],
               alpha = 1) +
   theme_bw()
-
+}
 }

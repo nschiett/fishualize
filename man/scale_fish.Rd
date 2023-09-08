@@ -82,6 +82,17 @@ are as output by \code{fish_pal}. If -1, the order of colors is reversed.}
 
 \item{discrete}{generate a discrete palette? (default: \code{FALSE} - generate continuous palette)}
 }
+\value{
+Alias of scale_color_fish or scale_fill_fish
+
+Alias of scale_color_fish or scale_fill_fish
+
+Alias of scale_color_fish or scale_fill_fish
+
+Alias of scale_color_fish or scale_fill_fish
+
+Alias of scale_color_fish or scale_fill_fish
+}
 \description{
 Uses the fish color scale.
 }

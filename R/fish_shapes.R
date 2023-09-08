@@ -62,6 +62,13 @@ fishapes <- function(){
     httr::message_for_status(resp)
     return(invisible(NULL))
   }
+
+  # if status code is not 200 (ok) return null
+  if(!resp$status_code == 200) {
+    message(paste("Status code of http request is", resp$status_code, sep = " "))
+    return(invisible(NULL))
+  }
+
   req <- httr::GET(url)
 
   httr::stop_for_status(req)
@@ -105,6 +112,8 @@ fishapes <- function(){
 #'
 #' @rdname add_fishape
 #'
+#' @return Adds a fish silhouette grob to a ggplot object.
+#'
 #'
 #' @importFrom ggplot2 annotation_custom
 #' @importFrom grid rasterGrob
@@ -116,6 +125,7 @@ fishapes <- function(){
 #'
 #'
 #' @examples
+#' \dontrun{
 #' library(ggplot2)
 #'
 #' ggplot() + add_fishape(fill = fish(n = 5)[4])
@@ -142,7 +152,7 @@ fishapes <- function(){
 #'               fill = fish(option = "Naso_lituratus", n = 5)[3],
 #'               alpha = 1) +
 #'   theme_bw()
-#'
+#' }
 #' @export
 #'
 add_fishape <- function(family = "Pomacanthidae",
@@ -201,6 +211,12 @@ add_fishape <- function(family = "Pomacanthidae",
   # Then stop if status > 400
   if (httr::http_error(resp)) {
     httr::message_for_status(resp)
+    return(invisible(NULL))
+  }
+
+  # if status code is not 200 (ok) return null
+  if(!resp$status_code == 200) {
+    message(paste("Status code of http request is", resp$status_code, sep = " "))
     return(invisible(NULL))
   }
 

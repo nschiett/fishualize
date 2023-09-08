@@ -159,6 +159,7 @@ fishualize <- function(option = "Centropyge_loricula", n = 5, ...) {
 #'
 #' @importFrom ggplot2 scale_fill_gradientn scale_color_gradientn discrete_scale
 #'
+#' @return Alias of scale_color_fish or scale_fill_fish
 #' @export
 scale_color_fish <- function(option = "Centropyge_loricula", ...,
                              alpha = 1, begin = 0, end = 1, direction = 1,
@@ -176,11 +177,13 @@ scale_color_fish <- function(option = "Centropyge_loricula", ...,
 #' @rdname scale_fish
 #' @aliases scale_color_fish
 #' @importFrom ggplot2 discrete_scale
+#' @return Alias of scale_color_fish or scale_fill_fish
 #' @export
 scale_colour_fish <- scale_color_fish
 
 #' @rdname scale_fish
 #' @aliases scale_color_fish
+#' @return Alias of scale_color_fish or scale_fill_fish
 #' @export
 scale_colour_fish_d <- function(option = "Centropyge_loricula", ...,
                                 alpha = 1, begin = 0, end = 1,
@@ -191,12 +194,14 @@ scale_colour_fish_d <- function(option = "Centropyge_loricula", ...,
 
 #' @rdname scale_fish
 #' @aliases scale_color_fish
+#' @return Alias of scale_color_fish or scale_fill_fish
 #' @export
 scale_color_fish_d <- scale_colour_fish_d
 
 
 #' @rdname scale_fish
 #' @aliases scale_fill_fish
+#' @return Alias of scale_color_fish or scale_fill_fish
 #' @importFrom ggplot2 discrete_scale
 #' @export
 scale_fill_fish_d <- function(option = "Centropyge_loricula", ...,
