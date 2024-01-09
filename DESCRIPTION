@@ -22,7 +22,7 @@ Suggests:
     rfishbase,
     rnaturalearth,
     pkgdown 
-URL: https://github.com/nschiett/fishualize
+URL: https://github.com/nschiett/fishualize, https://nschiett.github.io/fishualize/
 BugReports: https://github.com/nschiett/fishualize/issues
 Imports: 
     ggplot2 (>= 1.0.1),
