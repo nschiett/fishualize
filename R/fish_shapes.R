@@ -74,10 +74,13 @@ fishapes <- function(){
   httr::stop_for_status(req)
   text <- httr::content(req, "text")
 
-  text_sub <- stringr::str_split(text, "\\s+")[[1]] %>%
-    stringr::str_subset(".png")  %>%
-    stringr::str_subset("title") %>%
-    stringr::str_sub(start = 8, end = -6)
+  # text_sub <- stringr::str_split(text, "\\s+")[[1]] %>%
+  #   stringr::str_subset(".png")  %>%
+  #   stringr::str_subset("title") %>%
+  #   stringr::str_sub(start = 8, end = -6)
+
+  text_sub <- stringr::str_extract_all(text,
+                                       '(?<=,\\{\"name\":\").+?(?=.png\")')[[1]]
 
   df <- data.frame(text_sub = text_sub) %>%
     tidyr::separate(text_sub, into = c("family", "option"), sep = "_") %>%
